@@ -35,13 +35,19 @@ public class SkeletonManager : MonoBehaviour
         {
             if (transform.position.x < player.transform.position.x)
             {
-                rb.velocity = new Vector2(speed, 0);
+                if(transform.position.x - player.transform.position.x < -attackRange)
+                {
+                    rb.velocity = new Vector2(speed, 0);
+                }
                 if (!facingRight)
                     transform.localScale = new Vector2(1, 1);
             }
             else if (transform.position.x > player.transform.position.x)
             {
-                rb.velocity = new Vector2(-speed, 0);
+                if (transform.position.x - player.transform.position.x > attackRange)
+                {
+                    rb.velocity = new Vector2(-speed, 0);
+                }
                 if (facingRight)
                     transform.localScale = new Vector2(-1, 1);
             }
