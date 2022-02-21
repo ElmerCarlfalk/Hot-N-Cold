@@ -4,18 +4,35 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health;
+    public int maxHealth;
     int currentHealth;
+
+    public bool takeKnockbackAir = false;
+    public bool takeKnockbackGround = false;
+    public float knockback;
+
+    Rigidbody2D rb;
 
     void Start()
     {
-        currentHealth = health;
+        currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2 knockbackDir)
     {
         currentHealth -= damage;
+
+        if (takeKnockbackAir)
+        {
+            rb.velocity = knockbackDir * knockback;
+        }
+        else if (takeKnockbackGround)
+        {
+            knockbackDir.y = 0;
+            rb.velocity = knockbackDir * knockback;
+        }
 
         if (currentHealth <= 0)
         {

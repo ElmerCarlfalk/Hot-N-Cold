@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 115680884}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: AttackPos Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -187,7 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa229404cc0266041911a6ca4e503983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  maxHealth: 0
+  hearts: []
+  fullHeart: {fileID: 0}
+  emptyHeart: {fileID: 0}
 --- !u!114 &291611037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +391,8 @@ MonoBehaviour:
   stifness: 2
   damp: 0
   attackRange: 5
-  attackTime: 0.1
+  attackTime: 0.5
+  attackCD: 1
 --- !u!50 &697430407
 Rigidbody2D:
   serializedVersion: 4
@@ -417,7 +421,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697430405}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -513,7 +517,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8014296605706049b68f131218b46e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 0
+  takeKnockbackAir: 0
+  takeKnockbackGround: 0
+  knockback: 0
 --- !u!1 &757320400
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 757320401}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +560,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577670497}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: AttackPos Down
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -583,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579313376}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CamPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2077717940}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: AttackPos Up
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -853,8 +860,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2092223123}
   - component: {fileID: 2092223122}
-  - component: {fileID: 2092223121}
+  - component: {fileID: 2092223125}
   - component: {fileID: 2092223124}
+  - component: {fileID: 2092223121}
   m_Layer: 8
   m_Name: Toy
   m_TagString: Untagged
@@ -874,7 +882,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8014296605706049b68f131218b46e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 3
+  takeKnockbackAir: 1
+  takeKnockbackGround: 0
+  knockback: 5
 --- !u!212 &2092223122
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -934,7 +945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092223120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1, y: -3.7, z: 0}
+  m_LocalPosition: {x: 4.36, y: -1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -966,3 +977,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &2092223125
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092223120}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
