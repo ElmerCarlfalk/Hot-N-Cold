@@ -20,6 +20,10 @@ public class BatManager : MonoBehaviour
     private float attackTimeCounter;
     private bool isAttacking = false;
 
+    public float attackCD;
+    private float attackCDCounter;
+    private bool attackOnCD = false;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -52,20 +56,37 @@ public class BatManager : MonoBehaviour
 
         if (!isAttacking)
         {
-            float distanceToPlayer = (player.transform.position - transform.position).magnitude;
-            if (distanceToPlayer < attackRange)
+            if (!attackOnCD)
             {
-                Vector3 vel = rb.velocity;
-                vel.Normalize();
-                rb.velocity = vel * attackSpeed;
-                attackTimeCounter = attackTime;
-                isAttacking = true;
+                float distanceToPlayer = (player.transform.position - transform.position).magnitude;
+                if (distanceToPlayer < attackRange)
+                {
+                    Vector3 attackDir = (player.transform.position - transform.position).normalized;
+                    //Vector3 attackDir = rb.velocity;
+                    attackDir.Normalize();
+                    rb.velocity = attackDir * attackSpeed;
+                    attackTimeCounter = attackTime;
+                    isAttacking = true;
+                }
+            }
+            else
+            {
+                if (attackCDCounter <= 0)
+                {
+                    attackOnCD = false;
+                }
+                else
+                {
+                    attackCDCounter -= Time.fixedDeltaTime;
+                }
             }
         }
-        else if (isAttacking)
+        else
         {
             if (attackTimeCounter <= 0)
             {
+                attackCDCounter = attackCD;
+                attackOnCD = true;
                 isAttacking = false;
             }
             else
