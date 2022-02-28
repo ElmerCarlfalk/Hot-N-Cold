@@ -517,10 +517,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8014296605706049b68f131218b46e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  takeKnockbackAir: 0
+  maxHealth: 3
+  takeKnockbackAir: 1
   takeKnockbackGround: 0
-  knockback: 0
+  knockback: 3
 --- !u!1 &757320400
 GameObject:
   m_ObjectHideFlags: 0

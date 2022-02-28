@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (takeKnockbackAir)
         {
-            rb.velocity = knockbackDir * knockback;
+            rb.velocity = (knockbackDir * knockback) + rb.velocity;
         }
         else if (takeKnockbackGround)
         {
