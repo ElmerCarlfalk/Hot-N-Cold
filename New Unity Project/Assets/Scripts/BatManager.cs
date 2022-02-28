@@ -24,6 +24,10 @@ public class BatManager : MonoBehaviour
     private float attackCDCounter;
     private bool attackOnCD = false;
 
+    public float stunnedTime;
+    private float stunnedTimeCounter;
+    public bool isStunned = false;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -38,60 +42,76 @@ public class BatManager : MonoBehaviour
         //F = kx - bv where k=stifness, x=dist to point, b=damp, v=velocity
         //k=stifness, x=dist to point, b=damp, v=velocity
         //newv = v + (kx - bv) * deltatime where k=stifness, x=dist to point, b=damp, v=current velocity
-        if (!isAttacking)
+        if (!isStunned)
         {
-            Vector2 dir = (player.transform.position - transform.position);
-            float x = dir.magnitude;
-            dir.Normalize();
-            float v = Vector2.Dot(rb.velocity, dir);
-            rb.velocity = rb.velocity * (1 - veldamp * Time.fixedDeltaTime) + dir * (stifness * x - damp * v) * Time.fixedDeltaTime;
-
-            if (rb.velocity.magnitude > moveSpeed)
+            if (!isAttacking)
             {
-                Vector3 vel = rb.velocity;
-                vel.Normalize();
-                rb.velocity = vel * moveSpeed;
-            }
-        }
+                Vector2 dir = (player.transform.position - transform.position);
+                float x = dir.magnitude;
+                dir.Normalize();
+                float v = Vector2.Dot(rb.velocity, dir);
+                rb.velocity = rb.velocity * (1 - veldamp * Time.fixedDeltaTime) + dir * (stifness * x - damp * v) * Time.fixedDeltaTime;
 
-        if (!isAttacking)
-        {
-            if (!attackOnCD)
-            {
-                float distanceToPlayer = (player.transform.position - transform.position).magnitude;
-                if (distanceToPlayer < attackRange)
+                if (rb.velocity.magnitude > moveSpeed)
                 {
-                    Vector3 attackDir = (player.transform.position - transform.position).normalized;
-                    //Vector3 attackDir = rb.velocity;
-                    attackDir.Normalize();
-                    rb.velocity = attackDir * attackSpeed;
-                    attackTimeCounter = attackTime;
-                    isAttacking = true;
+                    Vector3 vel = rb.velocity;
+                    vel.Normalize();
+                    rb.velocity = vel * moveSpeed;
                 }
             }
-            else
+
+            if (!isAttacking)
             {
-                if (attackCDCounter <= 0)
+                if (!attackOnCD)
                 {
-                    attackOnCD = false;
+                    float distanceToPlayer = (player.transform.position - transform.position).magnitude;
+                    if (distanceToPlayer < attackRange)
+                    {
+                        Vector3 attackDir = (player.transform.position - transform.position).normalized;
+                        //Vector3 attackDir = rb.velocity;
+                        attackDir.Normalize();
+                        rb.velocity = attackDir * attackSpeed;
+                        attackTimeCounter = attackTime;
+                        isAttacking = true;
+                    }
                 }
                 else
                 {
-                    attackCDCounter -= Time.fixedDeltaTime;
+                    if (attackCDCounter <= 0)
+                    {
+                        attackOnCD = false;
+                    }
+                    else
+                    {
+                        attackCDCounter -= Time.fixedDeltaTime;
+                    }
                 }
-            }
-        }
-        else
-        {
-            if (attackTimeCounter <= 0)
-            {
-                attackCDCounter = attackCD;
-                attackOnCD = true;
-                isAttacking = false;
             }
             else
             {
-                attackTimeCounter -= Time.fixedDeltaTime;
+                if (attackTimeCounter <= 0)
+                {
+                    attackCDCounter = attackCD;
+                    attackOnCD = true;
+                    isAttacking = false;
+                }
+                else
+                {
+                    attackTimeCounter -= Time.fixedDeltaTime;
+                }
+            }
+        }
+        else //If stunned true
+        {
+
+            if (stunnedTimeCounter <= 0)  //NO WAY TO START COUNTDOWN
+            {
+                stunnedTimeCounter = stunnedTime;
+                isStunned = false;
+            }
+            else
+            {
+                stunnedTimeCounter -= Time.fixedDeltaTime;
             }
         }
     }

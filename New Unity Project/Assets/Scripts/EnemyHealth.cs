@@ -26,12 +26,25 @@ public class EnemyHealth : MonoBehaviour
 
         if (takeKnockbackAir)
         {
-            rb.velocity = (knockbackDir * knockback) + rb.velocity;
+            if(rb.velocity.y != 0)
+            {
+                Vector2 currentVel = rb.velocity;
+                currentVel.y = knockbackDir.y * knockback;
+                rb.velocity = currentVel;
+                //Add way to connect to scripts by changing one public somehow
+            }
+            else
+            {
+                Vector2 currentVel = rb.velocity;
+                currentVel.x = knockbackDir.x * knockback;
+                rb.velocity = currentVel;
+                //Add way to connect to scripts by changing one public somehow
+            }
         }
         else if (takeKnockbackGround)
         {
             knockbackDir.y = 0;
-            rb.velocity = knockbackDir * knockback;
+            rb.velocity = rb.velocity + (knockbackDir * knockback);
         }
 
         if (currentHealth <= 0)
