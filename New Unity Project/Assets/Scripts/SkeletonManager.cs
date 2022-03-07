@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SkeletonManager : MonoBehaviour
 {
+    public LayerMask whatIsGround;
     public LayerMask playerLayer;
     public float speed;
     public float attackRange;
@@ -44,7 +45,7 @@ public class SkeletonManager : MonoBehaviour
     }
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle()
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, whatIsGround);
         isPlayerFront = Physics2D.OverlapCircle(attackBoxFront.position, 0.5f, playerLayer);
         isPlayerUp = Physics2D.OverlapCircle(attackBoxUp.position, 0.5f, playerLayer);
     }
