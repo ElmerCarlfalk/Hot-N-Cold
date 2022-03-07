@@ -26,9 +26,6 @@ public class SkeletonManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        isPlayerFront = Physics2D.OverlapBox(attackBoxFront.position, new Vector2(0.85f, 0.51f), playerLayer);
-        isPlayerUp = Physics2D.OverlapBox(attackBoxUp.position, new Vector2(0.85f, 0.51f), playerLayer);
-
         if (isPlayerFront && !isAttacking) AttackFront();
         else if (isPlayerUp && !isAttacking) AttackUp();
 
@@ -36,7 +33,8 @@ public class SkeletonManager : MonoBehaviour
     }
     private void Update()
     {
-        
+        isPlayerFront = Physics2D.OverlapBox(attackBoxFront.position, new Vector2(1.5f, 1), playerLayer);
+        isPlayerUp = Physics2D.OverlapBox(attackBoxUp.position, new Vector2(1.5f, 1), playerLayer);
     }
 
     void ChasePlayer()
