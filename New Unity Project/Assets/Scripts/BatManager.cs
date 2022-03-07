@@ -28,10 +28,15 @@ public class BatManager : MonoBehaviour
     private float stunnedTimeCounter;
     public bool isStunned = false;
 
+    private bool activateOnStun = true;
+
+    Vector3 currentVel;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        stunnedTimeCounter = stunnedTime;
     }
 
     // Update is called once per frame
@@ -103,15 +108,25 @@ public class BatManager : MonoBehaviour
         }
         else //If stunned true
         {
-
-            if (stunnedTimeCounter <= 0)  //NO WAY TO START COUNTDOWN
+            if (activateOnStun)
             {
-                stunnedTimeCounter = stunnedTime;
-                isStunned = false;
+                if (stunnedTimeCounter <= 0)
+                {
+                    stunnedTimeCounter = stunnedTime;
+                    activateOnStun = true;
+                    rb.velocity = currentVel;
+                    isStunned = false;
+                }
+                else
+                {
+                    stunnedTimeCounter -= Time.fixedDeltaTime;
+                }
             }
             else
             {
-                stunnedTimeCounter -= Time.fixedDeltaTime;
+                currentVel = rb.velocity;
+                rb.velocity = Vector3.zero;
+                activateOnStun = false;
             }
         }
     }

@@ -29,22 +29,23 @@ public class EnemyHealth : MonoBehaviour
             if(rb.velocity.y != 0)
             {
                 Vector2 currentVel = rb.velocity;
-                currentVel.y = knockbackDir.y * knockback;
+                currentVel.y = knockbackDir.y * knockback * -1;
                 rb.velocity = currentVel;
-                //Add way to connect to scripts by changing one public somehow
+                gameObject.GetComponent<BatManager>().isStunned = true;
             }
             else
             {
                 Vector2 currentVel = rb.velocity;
                 currentVel.x = knockbackDir.x * knockback;
                 rb.velocity = currentVel;
-                //Add way to connect to scripts by changing one public somehow
+                gameObject.GetComponent<BatManager>().isStunned = true;
             }
         }
         else if (takeKnockbackGround)
         {
             knockbackDir.y = 0;
             rb.velocity = rb.velocity + (knockbackDir * knockback);
+            gameObject.GetComponent<BatManager>().isStunned = true; //Change from batManager to SkeletonManager
         }
 
         if (currentHealth <= 0)
