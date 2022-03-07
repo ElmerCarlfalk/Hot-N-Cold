@@ -12,10 +12,12 @@ public class SkeletonManager : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    bool isGrounded;
+    bool isOnWall;
     public Transform attackBoxFront;
-    public bool isPlayerFront;
+    bool isPlayerFront;
     public Transform attackBoxUp;
-    public bool isPlayerUp;
+    bool isPlayerUp;
     public GameObject player;
 
     void Start()
@@ -26,15 +28,23 @@ public class SkeletonManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isPlayerFront && !isAttacking) AttackFront();
-        else if (isPlayerUp && !isAttacking) AttackUp();
+        if (isPlayerFront && !isAttacking)
+        {
+            Invoke("AttackFront", 0.75f);
+            isAttacking = true;
+        }
+        else if (isPlayerUp && !isAttacking)
+        {
+            Invoke("AttackUp", 0.75f);
+            isAttacking = true;
+        }
 
         ChasePlayer();
     }
     private void Update()
     {
-        isPlayerFront = Physics2D.OverlapBox(attackBoxFront.position, new Vector2(1.5f, 1), playerLayer);
-        isPlayerUp = Physics2D.OverlapBox(attackBoxUp.position, new Vector2(1.5f, 1), playerLayer);
+        isPlayerFront = Physics2D.OverlapCircle(attackBoxFront.position, 0.5f, playerLayer);
+        isPlayerUp = Physics2D.OverlapCircle(attackBoxUp.position, 0.5f, playerLayer);
     }
 
     void ChasePlayer()
@@ -71,14 +81,12 @@ public class SkeletonManager : MonoBehaviour
     private void AttackFront()
     {
         Debug.Log("Front");
-        isAttacking = true;
-        Invoke("StopAttacking", 1f);
+        Invoke("StopAttacking", 0.25f);
     }
     private void AttackUp()
     {
         Debug.Log("Up");
-        isAttacking = true;
-        Invoke("StopAttacking", 1f);
+        Invoke("StopAttacking", 0.25f);
     }
     private void StopAttacking()
     {
@@ -87,7 +95,7 @@ public class SkeletonManager : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(attackBoxFront.position, new Vector2(1.5f, 1));
-        Gizmos.DrawWireCube(attackBoxUp.position, new Vector2(1.5f, 1));
+        Gizmos.DrawWireSphere(attackBoxFront.position, 0.5f);
+        Gizmos.DrawWireSphere(attackBoxUp.position, 0.5f);
     }
 }
