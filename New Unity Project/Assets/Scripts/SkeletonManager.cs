@@ -12,6 +12,7 @@ public class SkeletonManager : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public Transform groundCheck;
     bool isGrounded;
     bool isOnWall;
     public Transform attackBoxFront;
@@ -43,6 +44,7 @@ public class SkeletonManager : MonoBehaviour
     }
     private void Update()
     {
+        isGrounded = Physics2D.OverlapCircle()
         isPlayerFront = Physics2D.OverlapCircle(attackBoxFront.position, 0.5f, playerLayer);
         isPlayerUp = Physics2D.OverlapCircle(attackBoxUp.position, 0.5f, playerLayer);
     }
