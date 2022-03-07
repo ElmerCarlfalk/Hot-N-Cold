@@ -509,7 +509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa229404cc0266041911a6ca4e503983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 10
+  currentHealth: 0
   hearts:
   - {fileID: 1532612346}
   - {fileID: 1721747618}
@@ -521,8 +522,8 @@ MonoBehaviour:
   - {fileID: 1798246480}
   - {fileID: 1766177193}
   - {fileID: 1344580963}
-  fullHeart: {fileID: 0}
-  emptyHeart: {fileID: 0}
+  fullHeart: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  emptyHeart: {fileID: 7482667652216324306, guid: 5b295f900c0b2af41978fe09b57da18d, type: 3}
 --- !u!1 &1183350647
 GameObject:
   m_ObjectHideFlags: 0

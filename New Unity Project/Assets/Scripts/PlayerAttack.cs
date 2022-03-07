@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosUp.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage, Vector2.up);
                 }
                 startTimeBtwAttack = timeBtwAttack;
             }
@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosDown.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage, Vector2.down);
                 }
                 startTimeBtwAttack = timeBtwAttack;
             }
@@ -41,7 +41,8 @@ public class PlayerAttack : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosHor.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+                    Vector2 attackDir = (attackPosHor.position - transform.position).normalized;
+                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage, attackDir);
                 }
                 startTimeBtwAttack = timeBtwAttack;
             }
