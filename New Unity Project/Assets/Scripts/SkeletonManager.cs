@@ -7,20 +7,21 @@ public class SkeletonManager : MonoBehaviour
     public LayerMask whatIsGround;
     public LayerMask playerLayer;
     public float speed;
-    public float attackRange;
+    public float jumpForce;
     public bool facingRight = true;
     public bool isAttacking = false;
 
     private Rigidbody2D rb;
 
     public Transform groundCheck;
+    public Transform wallCheck;
     bool isGrounded;
     bool isOnWall;
     public Transform attackBoxFront;
     bool isPlayerFront;
     public Transform attackBoxUp;
     bool isPlayerUp;
-    public GameObject player;
+    GameObject player;
 
     void Start()
     {
@@ -46,6 +47,7 @@ public class SkeletonManager : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, whatIsGround);
+        isOnWall = Physics2D.OverlapCircle(wallCheck.position, 0.1f, whatIsGround);
         isPlayerFront = Physics2D.OverlapCircle(attackBoxFront.position, 0.5f, playerLayer);
         isPlayerUp = Physics2D.OverlapCircle(attackBoxUp.position, 0.5f, playerLayer);
     }
@@ -79,16 +81,19 @@ public class SkeletonManager : MonoBehaviour
                     facingRight = false;
                 }
             }
+            if(isGrounded && isOnWall)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                Debug.Log("Front");
+            }
         }
     }
     private void AttackFront()
     {
-        Debug.Log("Front");
         Invoke("StopAttacking", 0.25f);
     }
     private void AttackUp()
     {
-        Debug.Log("Up");
         Invoke("StopAttacking", 0.25f);
     }
     private void StopAttacking()
