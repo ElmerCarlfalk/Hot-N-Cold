@@ -28,6 +28,11 @@ public class BatManager : MonoBehaviour
     private float stunnedTimeCounter;
     public bool isStunned = false;
 
+    [HideInInspector]
+    public Vector2 knockbackDir;
+
+    public float knockback;
+
     private bool activateOnStun = true;
 
     Vector3 currentVel;
@@ -122,10 +127,24 @@ public class BatManager : MonoBehaviour
                     stunnedTimeCounter -= Time.fixedDeltaTime;
                 }
             }
-            else
+            else //This activates when first stunned
             {
                 currentVel = rb.velocity;
                 rb.velocity = Vector3.zero;
+
+                if (rb.velocity.y != 0)
+                {
+                    Vector2 currentVel = rb.velocity;
+                    currentVel.y = knockbackDir.y * knockback;
+                    rb.velocity = currentVel;
+                }
+                else
+                {
+                    Vector2 currentVel = rb.velocity;
+                    currentVel.x = knockbackDir.x * knockback;
+                    rb.velocity = currentVel;
+                }
+
                 activateOnStun = false;
             }
         }
