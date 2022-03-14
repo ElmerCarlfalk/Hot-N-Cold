@@ -15,8 +15,8 @@ public class SkeletonManager : MonoBehaviour
 
     public Transform groundCheck;
     public Transform wallCheck;
-    bool isGrounded;
-    bool isOnWall;
+    public bool isGrounded;
+    public bool isOnWall;
     public Transform attackBoxFront;
     bool isPlayerFront;
     public Transform attackBoxUp;
@@ -35,11 +35,13 @@ public class SkeletonManager : MonoBehaviour
         {
             Invoke("AttackFront", 0.75f);
             isAttacking = true;
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
         else if (isPlayerUp && !isAttacking)
         {
             Invoke("AttackUp", 0.75f);
             isAttacking = true;
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         ChasePlayer();
@@ -105,5 +107,7 @@ public class SkeletonManager : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(attackBoxFront.position, 0.5f);
         Gizmos.DrawWireSphere(attackBoxUp.position, 0.5f);
+        Gizmos.DrawWireSphere(wallCheck.position, 0.1f);
+        Gizmos.DrawWireSphere(groundCheck.position, 0.1f);
     }
 }

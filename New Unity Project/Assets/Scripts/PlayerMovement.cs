@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         playerGravity = rb.gravityScale;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Walk();
         Jump();
