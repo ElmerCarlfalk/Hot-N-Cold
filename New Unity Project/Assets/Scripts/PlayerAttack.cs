@@ -14,6 +14,15 @@ public class PlayerAttack : MonoBehaviour
     public float timeBtwAttack;
     private float startTimeBtwAttack;
 
+    public float attackDownKnockbackForce;
+
+    Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         if (startTimeBtwAttack <= 0)
@@ -23,16 +32,22 @@ public class PlayerAttack : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosUp.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage, Vector2.up);
+                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
             }
             else if(Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S))
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosDown.position, attackRange, whatIsEnemies);
+                if (enemiesToDamage[0] != null)
+                {
+                    Vector2 newVel = rb.velocity;
+                    newVel.y = attackDownKnockbackForce;
+                    rb.velocity = newVel;
+                }
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage, Vector2.down);
+                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
             }
@@ -41,8 +56,7 @@ public class PlayerAttack : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosHor.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    Vector2 attackDir = (attackPosHor.position - transform.position).normalized;
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage, attackDir);
+                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
             }
