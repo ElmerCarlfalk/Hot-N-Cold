@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    private Animator animator;
+
     public Transform attackPosUp;
     public Transform attackPosDown;
     public Transform attackPosHor;
@@ -20,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -35,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
+                animator.SetTrigger("AttackUp");
             }
             else if(Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S))
             {
@@ -50,6 +54,7 @@ public class PlayerAttack : MonoBehaviour
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
+                animator.SetTrigger("AttackDown");
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -59,6 +64,7 @@ public class PlayerAttack : MonoBehaviour
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
+                animator.SetTrigger("AttackHorizontal");
             }
         }
         else

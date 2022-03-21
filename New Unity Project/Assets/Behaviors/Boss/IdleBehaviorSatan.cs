@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleBehavior : StateMachineBehaviour
+public class IdleBehaviorSatan : StateMachineBehaviour
 {
     public float timer;
     public float minTime;
@@ -18,7 +18,7 @@ public class IdleBehavior : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(timer <= 0)
+        if (timer <= 0)
         {
             if (randomAttack == 0)
             {

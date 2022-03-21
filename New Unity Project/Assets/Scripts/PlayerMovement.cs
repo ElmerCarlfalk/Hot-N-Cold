@@ -6,6 +6,8 @@ using UnityEngine.Windows.Speech;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Animator animator;
+
     public float speed;
     public float dashForce;
     public float jumpForce;
@@ -40,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         playerGravity = rb.gravityScale;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -55,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            animator.speed = moveInput;
         }
 
         if (!facingRight && moveInput > 0)
