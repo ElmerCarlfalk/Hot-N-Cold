@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 6432805847364742441}
   - component: {fileID: 6432805847364742440}
   - component: {fileID: 6432805847364742422}
+  - component: {fileID: 5083555554517237207}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -350,3 +351,15 @@ MonoBehaviour:
   damage: 1
   timeBtwAttack: 0.2
   attackDownKnockbackForce: 20
+--- !u!114 &5083555554517237207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432805847364742447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9f808fdb5521a408c70bb9b42b085e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
