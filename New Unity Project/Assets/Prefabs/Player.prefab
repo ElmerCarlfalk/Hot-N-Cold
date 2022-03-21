@@ -311,7 +311,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   extraJumpsValue: 1
-  jumpTime: 0.15
+  jumpTime: 0.1
 --- !u!114 &6432805847364742440
 MonoBehaviour:
   m_ObjectHideFlags: 0
