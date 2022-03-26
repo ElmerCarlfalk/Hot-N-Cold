@@ -255,7 +255,7 @@ Animator:
   m_GameObject: {fileID: 2455277658132523393}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f34f5e3b2b8364d42b0fe96b672b6fcc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33625a86f08bce4499dc3591511888ad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -276,7 +276,7 @@ GameObject:
   m_Layer: 0
   m_Name: CamPos
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

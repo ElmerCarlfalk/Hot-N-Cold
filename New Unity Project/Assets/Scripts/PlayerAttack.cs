@@ -38,9 +38,9 @@ public class PlayerAttack : MonoBehaviour
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
-                animator.SetTrigger("AttackUp");
+                animator.SetBool("AttackUp", true);
             }
-            else if(Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S))
+            else if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S))
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosDown.position, attackRange, whatIsEnemies);
                 if (enemiesToDamage[0] != null)
@@ -54,7 +54,7 @@ public class PlayerAttack : MonoBehaviour
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
-                animator.SetTrigger("AttackDown");
+                animator.SetBool("AttackDown", true);
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -64,7 +64,7 @@ public class PlayerAttack : MonoBehaviour
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 startTimeBtwAttack = timeBtwAttack;
-                animator.SetTrigger("AttackHorizontal");
+                animator.SetBool("AttackHorizontal", true);
             }
         }
         else

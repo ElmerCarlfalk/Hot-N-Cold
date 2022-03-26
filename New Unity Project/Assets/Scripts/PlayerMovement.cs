@@ -7,7 +7,6 @@ using UnityEngine.Windows.Speech;
 public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
-
     public float speed;
     public float dashForce;
     public float jumpForce;
@@ -36,29 +35,43 @@ public class PlayerMovement : MonoBehaviour
 
     private float playerGravity;
 
+    private bool AirBorn = false;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         playerGravity = rb.gravityScale;
-        animator = GetComponent<Animator>();
+    }
+
+    void FixedUpdate()
+    {
+        Walk();
     }
 
     void Update()
     {
-        Walk();
         Jump();
         Dash();
     }
 
     void Walk()
     {
+        moveInput = Input.GetAxisRaw("Horizontal");
+
         if (!isDashing)
         {
-            moveInput = Input.GetAxisRaw("Horizontal");
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-            animator.speed = moveInput;
+            if (moveInput == 0)
+            {
+                animator.speed = 0;
+            }
+            else
+            {
+                animator.speed = 1;
+            }
         }
 
         if (!facingRight && moveInput > 0)
@@ -74,22 +87,43 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
-        if (isGrounded == true)
+        if (!isGrounded && !isJumping)
+        {
+            animator.SetBool("Down", true);
+        }
+        else if (isJumping)
+        {
+            animator.SetBool("Up", true);
+        }
+        else if (isGrounded && AirBorn)
+        {
+            animator.SetBool("Land", true);
+            animator.SetBool("Up", false);
+            animator.SetBool("Down", false);
+            extraJumps = extraJumpsValue;
+            AirBorn = false;
+        }
+        else if (isGrounded)
         {
             extraJumps = extraJumpsValue;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            animator.SetBool("Jump", true);
             rb.velocity = Vector2.up * jumpForce;
             isJumping = true;
+            AirBorn = true;
             jumpTimeCounter = jumpTime;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0 && !isGrounded)
         {
+            animator.SetBool("Down", false);
+            animator.SetBool("Up", false);
+            animator.SetBool("AirJump", true);
             rb.velocity = Vector2.up * jumpForce;
             isJumping = true;
+            AirBorn = true;
             jumpTimeCounter = jumpTime;
             extraJumps--;
         }
@@ -103,9 +137,9 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                isJumping = false;
+                animator.SetBool("Down", true);
                 rb.velocity = new Vector2(rb.velocity.x, 15f);
-                jumpTimeCounter = jumpTime;
+                isJumping = false;
             }
         }
 
@@ -113,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isJumping)
             {
+                animator.SetBool("Down", true);
                 rb.velocity = new Vector2(rb.velocity.x, 0.5f);
                 isJumping = false;
             }
@@ -125,6 +160,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (moveInput != 0)
             {
+                animator.SetBool("Dash", true);
                 Vector2 newVel = Vector2.right * dashForce * moveInput;
                 isDashing = true;
                 isJumping = false;
@@ -138,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (dashTimeCounter <= 0)
             {
+                animator.SetBool("Dash", false);
                 rb.gravityScale = playerGravity;
                 isDashing = false;
             }
@@ -161,5 +198,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
     }
 }
