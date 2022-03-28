@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 14459cbeb5a251949a76954c4729a9e6
+guid: 39bfdf0c15e717148a80cca599be830d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3535616907072096624
-    second: "HotNCold_Player_Animation_Run_V\xE4nster_0"
+      213: 4096904871963832441
+    second: HotNCold_Player_Animation_Dash_0
   - first:
-      213: -4313315925997974854
-    second: "HotNCold_Player_Animation_Run_V\xE4nster_1"
+      213: -1636290011731471766
+    second: HotNCold_Player_Animation_Dash_1
   - first:
-      213: -212987860457971249
-    second: "HotNCold_Player_Animation_Run_V\xE4nster_2"
+      213: -479751919252720796
+    second: HotNCold_Player_Animation_Dash_2
+  - first:
+      213: -4051702035320418358
+    second: HotNCold_Player_Animation_Dash_3
+  - first:
+      213: -8266943943082305039
+    second: HotNCold_Player_Animation_Dash_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,7 +106,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "HotNCold_Player_Animation_Run_V\xE4nster_0"
+      name: HotNCold_Player_Animation_Dash_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970b8f356412bd830800000000000000
+      internalID: 4096904871963832441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotNCold_Player_Animation_Dash_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62d93d57eaba49e0800000000000000
+      internalID: -1636290011731471766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotNCold_Player_Animation_Dash_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46331a8db249759f0800000000000000
+      internalID: -479751919252720796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotNCold_Player_Animation_Dash_3
       rect:
         serializedVersion: 2
         x: 0
@@ -114,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0963a10d727feeec0800000000000000
-      internalID: -3535616907072096624
+      spriteID: acfcff8377675c7c0800000000000000
+      internalID: -4051702035320418358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "HotNCold_Player_Animation_Run_V\xE4nster_1"
+      name: HotNCold_Player_Animation_Dash_4
       rect:
         serializedVersion: 2
         x: 64
@@ -135,29 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aba0bdaa4060424c0800000000000000
-      internalID: -4313315925997974854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "HotNCold_Player_Animation_Run_V\xE4nster_2"
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc1aeeb5ba05b0df0800000000000000
-      internalID: -212987860457971249
+      spriteID: 1f9138ea84ae54d80800000000000000
+      internalID: -8266943943082305039
       vertices: []
       indices: 
       edges: []
