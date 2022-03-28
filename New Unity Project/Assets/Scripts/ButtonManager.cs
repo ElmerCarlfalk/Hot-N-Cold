@@ -14,6 +14,11 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void MenuButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     //Stänger av spelet
     public void QuitButton()
     {
