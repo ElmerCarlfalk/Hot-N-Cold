@@ -5,22 +5,19 @@ using UnityEngine;
 public class Hazard : MonoBehaviour
 {
     GameObject player;
+    public CheckPointManager CheckPointManager;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject == player)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-
+            player.GetComponent<PlayerHealth>().TakeDamage(1);
+            player.transform.position = CheckPointManager.checkpoint.position;
         }
     }
 }
