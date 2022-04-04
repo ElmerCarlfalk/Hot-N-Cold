@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: a8507c1de702e714f9d8333e12bd6350
+guid: 81f3cfeba5ed24145af290b3fa80d960
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -899015824732117253
-    second: "HotNCold_Player_Animation_Run_H\xF6ger_0"
+      213: -7042293773885452648
+    second: HotNCold_Player_Animation_Attack_Ner_0
   - first:
-      213: -5225411493368825897
-    second: "HotNCold_Player_Animation_Run_H\xF6ger_1"
+      213: -480377058436144871
+    second: HotNCold_Player_Animation_Attack_Ner_1
   - first:
-      213: 1745470432549214928
-    second: "HotNCold_Player_Animation_Run_H\xF6ger_2"
+      213: 4225013149756958195
+    second: HotNCold_Player_Animation_Attack_Ner_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "HotNCold_Player_Animation_Run_H\xF6ger_0"
+      name: HotNCold_Player_Animation_Attack_Ner_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,14 +114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf6236fdedd0683f0800000000000000
-      internalID: -899015824732117253
+      spriteID: 89ecc93df1fb44e90800000000000000
+      internalID: -7042293773885452648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "HotNCold_Player_Animation_Run_H\xF6ger_1"
+      name: HotNCold_Player_Animation_Attack_Ner_1
       rect:
         serializedVersion: 2
         x: 64
@@ -135,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d7f184aeeb9b77b0800000000000000
-      internalID: -5225411493368825897
+      spriteID: 911aaa94c9b5559f0800000000000000
+      internalID: -480377058436144871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "HotNCold_Player_Animation_Run_H\xF6ger_2"
+      name: HotNCold_Player_Animation_Attack_Ner_2
       rect:
         serializedVersion: 2
         x: 128
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0da1b0a4c18293810800000000000000
-      internalID: 1745470432549214928
+      spriteID: 3f52e9a131342aa30800000000000000
+      internalID: 4225013149756958195
       vertices: []
       indices: 
       edges: []

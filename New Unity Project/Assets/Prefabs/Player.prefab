@@ -186,7 +186,7 @@ MonoBehaviour:
   speed: 6
   dashForce: 25
   jumpForce: 30
-  dashTime: 0.1
+  dashTime: 0.12
   groundCheck: {fileID: 5190642916265612120}
   checkRadius: 0.5
   whatIsGround:

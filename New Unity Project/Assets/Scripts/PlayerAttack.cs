@@ -43,6 +43,8 @@ public class PlayerAttack : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S))
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosDown.position, attackRange, whatIsEnemies);
+                startTimeBtwAttack = timeBtwAttack;
+                animator.SetBool("AttackDown", true);
                 if (enemiesToDamage[0] != null)
                 {
                     Vector2 newVel = rb.velocity;
@@ -53,8 +55,6 @@ public class PlayerAttack : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
-                startTimeBtwAttack = timeBtwAttack;
-                animator.SetBool("AttackDown", true);
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {

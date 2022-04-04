@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Player_Attack : StateMachineBehaviour
 {
-    public float attackTime;
-    private float attackTimeCounter;
-
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        attackTimeCounter = attackTime;
+        animator.SetFloat("AnimationPlayTime", animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (attackTimeCounter <= 0)
+        if (animator.GetFloat("AnimationPlayTime") <= 0)
         {
             if (!animator.GetBool("Up") || !animator.GetBool("Down"))
             {
-                if (animator.speed == 0)
+                if (animator.GetFloat("Speed") == 0)
                 {
                     animator.SetBool("Idle", true);
                 }
@@ -30,7 +27,7 @@ public class Player_Attack : StateMachineBehaviour
         }
         else
         {
-            attackTimeCounter -= Time.deltaTime;
+            animator.SetFloat("AnimationPlayTime", animator.GetFloat("AnimationPlayTime") - Time.deltaTime);
         }
     }
 
@@ -38,6 +35,6 @@ public class Player_Attack : StateMachineBehaviour
     {
         animator.SetBool("AttackHorizontal", false);
         animator.SetBool("AttackUp", false);
-        attackTimeCounter = attackTime;
+        animator.SetBool("Land", false);
     }
 }

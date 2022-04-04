@@ -66,11 +66,11 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
             if (moveInput == 0)
             {
-                animator.speed = 0;
+                animator.SetFloat("Speed", 0);
             }
             else
             {
-                animator.speed = 1;
+                animator.SetFloat("Speed", 1);
             }
         }
 
@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isGrounded && !isJumping)
         {
             animator.SetBool("Down", true);
+            AirBorn = true;
         }
         else if (isJumping)
         {
@@ -105,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (isGrounded)
         {
+            animator.SetBool("AttackDown", false);
             extraJumps = extraJumpsValue;
         }
 
