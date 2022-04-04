@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Satan_Idle : StateMachineBehaviour
+public class Satan_SummonAttack : StateMachineBehaviour
 {
-    int choseAttack;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,6 +16,6 @@ public class Satan_Idle : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("Idle", false);
+        animator.SetBool("SummonAttack", false);
     }
 }
