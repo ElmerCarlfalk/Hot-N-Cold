@@ -8,7 +8,7 @@ public class SkeletonManager : MonoBehaviour
     public LayerMask playerLayer;
     public float speed;
     public float jumpForce;
-    public bool facingRight = true;
+    public bool facingRight = false;
     public bool isAttacking = false;
 
     private Rigidbody2D rb;
@@ -61,14 +61,11 @@ public class SkeletonManager : MonoBehaviour
         {
             if (transform.position.x < player.transform.position.x)
             {
-                //if(transform.position.x - player.transform.position.x < -attackRange)
-                //{
                     rb.velocity = new Vector2(speed, rb.velocity.y);
-                //}
-                if (!facingRight)
+                if (facingRight)
                 {
-                    transform.localScale = new Vector2(1, 1);
-                    facingRight = true;
+                    transform.localScale = new Vector2(-1, 1);
+                    facingRight = false;
                 }
             }
             else if (transform.position.x > player.transform.position.x)
@@ -77,10 +74,10 @@ public class SkeletonManager : MonoBehaviour
                 //{
                     rb.velocity = new Vector2(-speed, rb.velocity.y);
                 //}
-                if (facingRight)
+                if (!facingRight)
                 {
-                    transform.localScale = new Vector2(-1, 1);
-                    facingRight = false;
+                    transform.localScale = new Vector2(1, 1);
+                    facingRight = true;
                 }
             }
             if(isGrounded && isOnWall)
