@@ -13,7 +13,7 @@ public class Player_Run : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(animator.speed == 0)
+        if (animator.GetFloat("Speed") == 0)
         {
             animator.SetBool("Idle", true);
         }

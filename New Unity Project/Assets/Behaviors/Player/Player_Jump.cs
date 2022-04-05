@@ -15,7 +15,7 @@ public class Player_Jump : StateMachineBehaviour
     {
         if (!animator.GetBool("Up") || !animator.GetBool("Down"))
         {
-            if (animator.speed == 0)
+            if (animator.GetFloat("Speed") == 0)
             {
                 animator.SetBool("Idle", true);
             }
