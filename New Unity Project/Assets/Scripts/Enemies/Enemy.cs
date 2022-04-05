@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int maxHealth;
     int currentHealth;
+    public int enemyDamage;
 
     protected virtual void Start()
     {

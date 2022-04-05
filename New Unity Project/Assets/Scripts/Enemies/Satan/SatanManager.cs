@@ -36,7 +36,7 @@ public class SatanManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(0, 3);
+        chooseAttackType = Random.Range(0, 0);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
     }
@@ -90,7 +90,8 @@ public class SatanManager : MonoBehaviour
 
         if (summonCDTimer <= 0)
         {
-            Instantiate(summonProjectile, summonPos[Random.Range(0, summonPos.Length - 1)]);
+            Vector2 summonPosition = summonPos[Random.Range(0, summonPos.Length - 1)].position;
+            Instantiate(summonProjectile, summonPosition, Quaternion.identity);
             summonCDTimer = summonCD;
         }
         else

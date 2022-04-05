@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 4197532760514952442}
   - component: {fileID: 7057468190345094496}
   - component: {fileID: 7805565104957667399}
-  - component: {fileID: 1187060167455881188}
   - component: {fileID: 2526755580450226037}
   m_Layer: 6
   m_Name: Player
@@ -206,11 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa229404cc0266041911a6ca4e503983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 3
   currentHealth: 0
   hearts: []
-  fullHeart: {fileID: 0}
-  emptyHeart: {fileID: 0}
+  fullHeart: {fileID: 21300000, guid: 3c91cd2f817f7c2419509be356627db3, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 418e5eb06114b754895afd8d298fa059, type: 3}
 --- !u!114 &7805565104957667399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,18 +232,6 @@ MonoBehaviour:
   damage: 1
   timeBtwAttack: 0.2
   attackDownKnockbackForce: 20
---- !u!114 &1187060167455881188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2455277658132523393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9f808fdb5521a408c70bb9b42b085e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2526755580450226037
 Animator:
   serializedVersion: 3
