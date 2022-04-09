@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BossProjectile : MonoBehaviour
 {
-
     GameObject player;
     Rigidbody2D rb;
+
+    public int damage;
 
     public float moveSpeed;
 
@@ -38,6 +39,11 @@ public class BossProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        PlayerHealth player = hitInfo.GetComponent<PlayerHealth>();
+        if (player != null)
+        {
+            player.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 }

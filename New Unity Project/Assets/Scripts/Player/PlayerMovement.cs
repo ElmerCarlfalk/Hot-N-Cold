@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
             if (jumpTimeCounter > 0)
             {
                 rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.fixedDeltaTime;
+                jumpTimeCounter -= Time.deltaTime;
             }
             else
             {
@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                dashTimeCounter -= Time.fixedDeltaTime;
+                dashTimeCounter -= Time.deltaTime;
             }
         }
     }

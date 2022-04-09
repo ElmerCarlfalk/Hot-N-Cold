@@ -12,9 +12,14 @@ public class PlayerHealth : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
+    public float invTime;
+    private float invTimeCounter;
+    bool isInv = true;
+
     void Start()
     {
         currentHealth = maxHealth;
+        invTimeCounter = invTime;
     }
 
     // Update is called once per frame
@@ -47,13 +52,33 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (isInv)
+        {
+            if(invTimeCounter <= 0)
+            {
+                isInv = false;
+                invTimeCounter = invTime;
+            }
+            else
+            {
+                invTimeCounter -= Time.fixedTime;
+            }
+        }
+    }
+
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
+        if (!isInv)
         {
-            Die();
+            currentHealth -= damage;
+            isInv = true;
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 

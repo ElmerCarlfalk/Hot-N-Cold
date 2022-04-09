@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class BatDealDamage : MonoBehaviour
 {
-    int enemyDamage;
+    int damage;
     private void Start()
     {
-        enemyDamage = gameObject.GetComponent<BatManager>().enemyDamage;
+        damage = gameObject.GetComponentInParent<BatManager>().damage;
     }
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         PlayerHealth player = hitInfo.GetComponent<PlayerHealth>();
         if (player != null)
         {
-            player.TakeDamage(enemyDamage);
+            player.TakeDamage(damage);
         }
     }
 }

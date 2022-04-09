@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SatanManager : MonoBehaviour
+public class SatanManager : Enemy
 {
     int chooseAttackType;
 
@@ -27,13 +27,20 @@ public class SatanManager : MonoBehaviour
     float rainAttackCDTimer;
 
     public Transform[] summonPos;
+    public Transform[] spikeSummonPos;
+    public Transform[] slamStartPos;
+    public Transform[] rainSummonPos;
 
     public GameObject summonProjectile;
+    public GameObject spikeObject;
+    public GameObject slamProjectile;
+    public GameObject rainProjectile;
 
     Animator animator;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
         chooseAttackType = Random.Range(0, 0);
@@ -143,7 +150,8 @@ public class SatanManager : MonoBehaviour
 
         if (slamAttackCDTimer <= 0)
         {
-            //Attack here
+            Vector2 summonPosition = slamStartPos[Random.Range(0, slamStartPos.Length - 1)].position;
+            Instantiate(slamProjectile, summonPosition, Quaternion.identity);
             slamAttackCDTimer = slamAttackCD;
         }
         else

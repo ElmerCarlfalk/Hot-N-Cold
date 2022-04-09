@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   dashForce: 25
-  jumpForce: 30
+  jumpForce: 20
   dashTime: 0.12
   groundCheck: {fileID: 5190642916265612120}
   checkRadius: 0.5
@@ -192,7 +192,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   extraJumpsValue: 1
-  jumpTime: 0.5
+  jumpTime: 0.25
 --- !u!114 &7057468190345094496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,11 +205,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa229404cc0266041911a6ca4e503983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 5
   currentHealth: 0
   hearts: []
   fullHeart: {fileID: 21300000, guid: 3c91cd2f817f7c2419509be356627db3, type: 3}
   emptyHeart: {fileID: 21300000, guid: 418e5eb06114b754895afd8d298fa059, type: 3}
+  invTime: 0
 --- !u!114 &7805565104957667399
 MonoBehaviour:
   m_ObjectHideFlags: 0
