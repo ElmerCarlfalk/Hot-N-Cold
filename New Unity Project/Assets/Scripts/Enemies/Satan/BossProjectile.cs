@@ -9,7 +9,7 @@ public class BossProjectile : MonoBehaviour
 
     public int damage;
 
-    public float moveSpeed;
+    public float maxSpeed;
 
     public float veldamp;
     public float stifness;
@@ -29,11 +29,11 @@ public class BossProjectile : MonoBehaviour
         float v = Vector2.Dot(rb.velocity, dir);
         rb.velocity = rb.velocity * (1 - veldamp * Time.fixedDeltaTime) + dir * (stifness * x - damp * v) * Time.fixedDeltaTime;
 
-        if (rb.velocity.magnitude > moveSpeed)
+        if (rb.velocity.magnitude > maxSpeed)
         {
             Vector3 vel = rb.velocity;
             vel.Normalize();
-            rb.velocity = vel * moveSpeed;
+            rb.velocity = vel * maxSpeed;
         }
     }
 

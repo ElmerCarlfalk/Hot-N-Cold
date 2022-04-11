@@ -36,14 +36,11 @@ public class SatanManager : Enemy
     public GameObject slamProjectile;
     public GameObject rainProjectile;
 
-    Animator animator;
-
     protected override void Start()
     {
         base.Start();
-        animator = GetComponent<Animator>();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(0, 0);
+        chooseAttackType = Random.Range(3, 3);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
     }
@@ -177,7 +174,8 @@ public class SatanManager : Enemy
 
         if (rainAttackCDTimer <= 0)
         {
-            //Attack here
+            Vector2 summonPosition = rainSummonPos[Random.Range(0, rainSummonPos.Length - 1)].position;
+            Instantiate(rainProjectile, summonPosition, Quaternion.identity);
             rainAttackCDTimer = rainAttackCD;
         }
         else

@@ -50,11 +50,11 @@ public class SlamProjectile : MonoBehaviour
     {
         if (dashRight) //Om Satan är åt höger
         {
-            rb.velocity = Vector2.right * attackSpeed;
+            rb.velocity = Vector2.right * attackSpeed * 10 * Time.fixedDeltaTime;
         }
         else //Om Satan är åt vänster
         {
-            rb.velocity = Vector2.left * attackSpeed;
+            rb.velocity = Vector2.left * attackSpeed * 10 * Time.fixedDeltaTime;
         }
     }
 
@@ -69,6 +69,5 @@ public class SlamProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
 }

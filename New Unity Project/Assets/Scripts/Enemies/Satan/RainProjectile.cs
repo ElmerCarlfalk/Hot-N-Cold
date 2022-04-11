@@ -13,13 +13,7 @@ public class RainProjectile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * fallSpeed;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(rb.velocity);
+        rb.velocity = Vector2.down * fallSpeed * 10 * Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)

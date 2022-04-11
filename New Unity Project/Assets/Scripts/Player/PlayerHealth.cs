@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private Animator animator;
+    private Rigidbody2D rb;
+    private PlayerAttack playerAttack;
+    private PlayerMovement playerMovement;
+    private SpriteRenderer spriteRenderer;
+
+    public float animationPlayTime;
+
     public int maxHealth;
     public int currentHealth;
 
@@ -18,6 +26,11 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        playerAttack = GetComponent<PlayerAttack>();
+        playerMovement = GetComponent<PlayerMovement>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         invTimeCounter = invTime;
     }
@@ -49,6 +62,11 @@ public class PlayerHealth : MonoBehaviour
             {
                 hearts[i].enabled = false;
             }
+        }
+
+        if(animator.GetBool("Die") == true)
+        {
+            //Timer
         }
     }
 
@@ -84,6 +102,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        animator.SetBool("Die", true);
+        rb.velocity = Vector2.zero;
+        playerMovement.enabled = false;
+        playerAttack.enabled = false;
     }
 }

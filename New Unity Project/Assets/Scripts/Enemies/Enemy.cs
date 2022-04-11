@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
     public int maxHealth;
     int currentHealth;
     public int damage;
+    protected Animator animator;
 
     protected virtual void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
