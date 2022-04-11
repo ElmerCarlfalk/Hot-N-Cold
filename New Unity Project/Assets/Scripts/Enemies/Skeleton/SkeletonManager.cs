@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonManager : MonoBehaviour
+public class SkeletonManager : Enemy
 {
     public LayerMask whatIsGround;
     public LayerMask playerLayer;
@@ -23,8 +23,9 @@ public class SkeletonManager : MonoBehaviour
     bool isPlayerUp;
     GameObject player;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
