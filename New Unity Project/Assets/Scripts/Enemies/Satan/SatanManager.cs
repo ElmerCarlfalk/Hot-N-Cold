@@ -34,13 +34,13 @@ public class SatanManager : Enemy
     public GameObject summonProjectile;
     public GameObject spikeObject;
     public GameObject slamProjectile;
-    public GameObject rainProjectile;
+    public GameObject[] rainProjectile;
 
     protected override void Start()
     {
         base.Start();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(3, 3);
+        chooseAttackType = Random.Range(0, 4);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
     }
@@ -83,7 +83,7 @@ public class SatanManager : Enemy
         {
             animator.SetBool("Idle", true);
             IdleTime = Random.Range(minIdleTime, maxIdleTime);
-            chooseAttackType = Random.Range(0, 3);
+            chooseAttackType = Random.Range(0, 4);
             AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
             summonCDTimer = summonCD;
         }
@@ -94,7 +94,7 @@ public class SatanManager : Enemy
 
         if (summonCDTimer <= 0)
         {
-            Vector2 summonPosition = summonPos[Random.Range(0, summonPos.Length - 1)].position;
+            Vector2 summonPosition = summonPos[Random.Range(0, summonPos.Length)].position;
             Instantiate(summonProjectile, summonPosition, Quaternion.identity);
             summonCDTimer = summonCD;
         }
@@ -110,7 +110,7 @@ public class SatanManager : Enemy
         {
             animator.SetBool("Idle", true);
             IdleTime = Random.Range(minIdleTime, maxIdleTime);
-            chooseAttackType = Random.Range(0, 3);
+            chooseAttackType = Random.Range(0, 4);
             AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
             spikeAttackCDTimer = spikeAttackCD;
         }
@@ -136,7 +136,7 @@ public class SatanManager : Enemy
         {
             animator.SetBool("Idle", true);
             IdleTime = Random.Range(minIdleTime, maxIdleTime);
-            chooseAttackType = Random.Range(0, 3);
+            chooseAttackType = Random.Range(0, 4);
             AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
             slamAttackCDTimer = slamAttackCD;
         }
@@ -147,7 +147,7 @@ public class SatanManager : Enemy
 
         if (slamAttackCDTimer <= 0)
         {
-            Vector2 summonPosition = slamStartPos[Random.Range(0, slamStartPos.Length - 1)].position;
+            Vector2 summonPosition = slamStartPos[Random.Range(0, slamStartPos.Length)].position;
             Instantiate(slamProjectile, summonPosition, Quaternion.identity);
             slamAttackCDTimer = slamAttackCD;
         }
@@ -163,7 +163,7 @@ public class SatanManager : Enemy
         {
             animator.SetBool("Idle", true);
             IdleTime = Random.Range(minIdleTime, maxIdleTime);
-            chooseAttackType = Random.Range(0, 3);
+            chooseAttackType = Random.Range(0, 4);
             AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
             rainAttackCDTimer = rainAttackCD;
         }
@@ -174,8 +174,8 @@ public class SatanManager : Enemy
 
         if (rainAttackCDTimer <= 0)
         {
-            Vector2 summonPosition = rainSummonPos[Random.Range(0, rainSummonPos.Length - 1)].position;
-            Instantiate(rainProjectile, summonPosition, Quaternion.identity);
+            Vector2 summonPosition = rainSummonPos[Random.Range(0, rainSummonPos.Length)].position;
+            Instantiate(rainProjectile[Random.Range(0, rainProjectile.Length)], summonPosition, Quaternion.identity);
             rainAttackCDTimer = rainAttackCD;
         }
         else

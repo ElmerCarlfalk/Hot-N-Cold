@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
+    public GameObject takeDamageEffect;
+
     public float invTime;
     private float invTimeCounter;
     bool isInv = true;
@@ -66,7 +68,14 @@ public class PlayerHealth : MonoBehaviour
 
         if(animator.GetBool("Die") == true)
         {
-            //Timer
+            if (animationPlayTime <= 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                animationPlayTime -= Time.deltaTime;
+            }
         }
     }
 
@@ -90,6 +99,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInv)
         {
+            Instantiate(takeDamageEffect, transform.position, Quaternion.identity);
             currentHealth -= damage;
             isInv = true;
 
