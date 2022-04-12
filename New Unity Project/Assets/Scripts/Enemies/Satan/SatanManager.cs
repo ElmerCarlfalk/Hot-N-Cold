@@ -121,7 +121,14 @@ public class SatanManager : Enemy
 
         if (spikeAttackCDTimer <= 0)
         {
-            //Attack here
+            int safePoint = Random.Range(0, spikeSummonPos.Length);
+            for(int i = 0; i < spikeSummonPos.Length; i++)
+            {
+                if(i != safePoint)
+                {
+                    Instantiate(spikeObject, spikeSummonPos[i].position, Quaternion.identity);
+                }
+            }
             spikeAttackCDTimer = spikeAttackCD;
         }
         else

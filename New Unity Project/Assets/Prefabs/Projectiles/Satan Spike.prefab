@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8760871162586958675}
   - component: {fileID: 8760871162586958700}
   - component: {fileID: 2577072879938689159}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Satan Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,3 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe148d7af4bbaed419904f401af19a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  timeUntilAttack: 2

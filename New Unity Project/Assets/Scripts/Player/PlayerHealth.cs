@@ -9,7 +9,6 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerAttack playerAttack;
     private PlayerMovement playerMovement;
-    private SpriteRenderer spriteRenderer;
 
     public float animationPlayTime;
 
@@ -32,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         invTimeCounter = invTime;
     }
@@ -77,20 +75,17 @@ public class PlayerHealth : MonoBehaviour
                 animationPlayTime -= Time.deltaTime;
             }
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (isInv)
         {
-            if(invTimeCounter <= 0)
+            if (invTimeCounter <= 0)
             {
                 isInv = false;
                 invTimeCounter = invTime;
             }
             else
             {
-                invTimeCounter -= Time.fixedTime;
+                invTimeCounter -= Time.deltaTime;
             }
         }
     }
@@ -106,6 +101,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 Die();
             }
+
             if (animator.GetBool("Die") == false)
             {
                 Instantiate(takeDamageEffect, transform.position, Quaternion.identity);

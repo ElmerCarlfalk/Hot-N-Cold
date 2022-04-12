@@ -212,7 +212,7 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: 3c91cd2f817f7c2419509be356627db3, type: 3}
   emptyHeart: {fileID: 21300000, guid: 418e5eb06114b754895afd8d298fa059, type: 3}
   takeDamageEffect: {fileID: 5503911682366447315, guid: 90eb669d8cec2f642848def8be1810c6, type: 3}
-  invTime: 0
+  invTime: 2
 --- !u!114 &7805565104957667399
 MonoBehaviour:
   m_ObjectHideFlags: 0

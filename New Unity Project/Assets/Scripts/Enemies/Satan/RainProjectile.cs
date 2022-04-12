@@ -16,7 +16,6 @@ public class RainProjectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * fallSpeed * 10 * Time.fixedDeltaTime;
         rotDir = Random.Range(-1, 1);
-        Debug.Log(rotDir);
         if (rotDir == 0)
         {
             rotDir = 1;
@@ -36,7 +35,7 @@ public class RainProjectile : MonoBehaviour
         {
             player.TakeDamage(damage);
         }
-        else //Om det är vägg
+        else //Om det är golv
         {
             Destroy(gameObject);
         }
