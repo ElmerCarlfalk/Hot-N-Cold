@@ -99,13 +99,16 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInv)
         {
-            Instantiate(takeDamageEffect, transform.position, Quaternion.identity);
             currentHealth -= damage;
             isInv = true;
 
             if (currentHealth <= 0)
             {
                 Die();
+            }
+            if (animator.GetBool("Die") == false)
+            {
+                Instantiate(takeDamageEffect, transform.position, Quaternion.identity);
             }
         }
     }

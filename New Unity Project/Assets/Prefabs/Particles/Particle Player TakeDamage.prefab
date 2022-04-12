@@ -606,7 +606,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1048,8 +1048,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.58024096
-          value: 0.5030334
+          time: 0.3642835
+          value: 0.5338026
           inSlope: -0.8113489
           outSlope: -0.8113489
           tangentMode: 0
