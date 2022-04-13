@@ -104,7 +104,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (animator.GetBool("Die") == false)
             {
-                Instantiate(takeDamageEffect, transform.position, Quaternion.identity);
+                Instantiate(takeDamageEffect, transform.position, Quaternion.Euler(-90, 0, 0));
             }
         }
     }

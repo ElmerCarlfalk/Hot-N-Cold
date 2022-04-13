@@ -40,7 +40,7 @@ public class SatanManager : Enemy
     {
         base.Start();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(0, 4);
+        chooseAttackType = Random.Range(3, 4);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
     }

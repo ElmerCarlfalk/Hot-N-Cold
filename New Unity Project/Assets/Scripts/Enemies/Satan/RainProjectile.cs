@@ -11,6 +11,8 @@ public class RainProjectile : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public GameObject takeDamageEffect;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +39,7 @@ public class RainProjectile : MonoBehaviour
         }
         else //Om det är golv
         {
+            Instantiate(takeDamageEffect, transform.position, Quaternion.Euler(0, 0, 0));
             Destroy(gameObject);
         }
     }

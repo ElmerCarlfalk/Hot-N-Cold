@@ -147,3 +147,4 @@ MonoBehaviour:
   damage: 1
   fallSpeed: 30
   rotationSpeed: 50
+  takeDamageEffect: {fileID: 6896260880057089528, guid: 71a67cf4182be6247b40b675125eed56, type: 3}
