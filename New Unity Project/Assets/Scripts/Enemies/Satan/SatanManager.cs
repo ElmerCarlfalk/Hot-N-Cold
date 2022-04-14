@@ -21,6 +21,8 @@ public class SatanManager : Enemy
     float slamAttackCDTimer;
     public float rainAttackCD;
     float rainAttackCDTimer;
+    public float timeUntilRainAttack;
+    float timeUntilRainAttackCounter;
     bool startedRain = false;
 
     [Header("Screen Shake")]
@@ -49,6 +51,7 @@ public class SatanManager : Enemy
         chooseAttackType = Random.Range(3, 4);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
+        timeUntilRainAttackCounter = timeUntilRainAttack;
         Instantiate(particleEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
     }
 
@@ -175,34 +178,41 @@ public class SatanManager : Enemy
     {
         if (!startedRain)
         {
-            CinemachineShake.Instance.ShakeCamera(shakeIntensityRainStart, AttackDuration);
-
+            CinemachineShake.Instance.ShakeCamera(shakeIntensityRainStart, timeUntilRainAttack + 0.5f);
             startedRain = true;
         }
 
-        if (AttackDuration <= 0)
+        if (timeUntilRainAttackCounter <= 0)
         {
-            animator.SetBool("Idle", true);
-            IdleTime = Random.Range(minIdleTime, maxIdleTime);
-            chooseAttackType = Random.Range(0, 4);
-            AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
-            startedRain = false;
-            rainAttackCDTimer = rainAttackCD;
-        }
-        else
-        {
-            AttackDuration -= Time.fixedDeltaTime;
-        }
+            if (AttackDuration <= 0)
+            {
+                animator.SetBool("Idle", true);
+                IdleTime = Random.Range(minIdleTime, maxIdleTime);
+                chooseAttackType = Random.Range(0, 4);
+                AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
+                startedRain = false;
+                timeUntilRainAttackCounter = timeUntilRainAttack;
+                rainAttackCDTimer = rainAttackCD;
+            }
+            else
+            {
+                AttackDuration -= Time.fixedDeltaTime;
+            }
 
-        if (rainAttackCDTimer <= 0)
-        {
-            Vector2 summonPosition = rainSummonPos[Random.Range(0, rainSummonPos.Length)].position;
-            Instantiate(rainProjectile[Random.Range(0, rainProjectile.Length)], summonPosition, Quaternion.identity);
-            rainAttackCDTimer = rainAttackCD;
+            if (rainAttackCDTimer <= 0)
+            {
+                Vector2 summonPosition = rainSummonPos[Random.Range(0, rainSummonPos.Length)].position;
+                Instantiate(rainProjectile[Random.Range(0, rainProjectile.Length)], summonPosition, Quaternion.identity);
+                rainAttackCDTimer = rainAttackCD;
+            }
+            else
+            {
+                rainAttackCDTimer -= Time.fixedDeltaTime;
+            }
         }
         else
         {
-            rainAttackCDTimer -= Time.fixedDeltaTime;
+            timeUntilRainAttackCounter -= Time.deltaTime;
         }
     }
 }

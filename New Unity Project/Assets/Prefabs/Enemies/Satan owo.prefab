@@ -883,6 +883,7 @@ MonoBehaviour:
   spikeAttackCD: 3
   slamAttackCD: 5
   rainAttackCD: 0.15
+  timeUntilRainAttack: 1
   shakeIntensityRainStart: 1
   summonPos:
   - {fileID: 3113234802064561158}
