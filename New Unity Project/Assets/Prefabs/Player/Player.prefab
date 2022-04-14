@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 1070552490716614826}
   - component: {fileID: 6132651789892863409}
   - component: {fileID: 6907313199677192211}
-  - component: {fileID: 4197532760514952442}
   - component: {fileID: 7057468190345094496}
   - component: {fileID: 7805565104957667399}
+  - component: {fileID: 4197532760514952442}
   - component: {fileID: 2526755580450226037}
   m_Layer: 6
   m_Name: Player
@@ -170,29 +170,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4098634, y: 0.8093405}
   m_EdgeRadius: 0
---- !u!114 &4197532760514952442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2455277658132523393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058d541e4587214439fdebfa2ef42550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  dashForce: 25
-  jumpForce: 20
-  dashTime: 0.12
-  groundCheck: {fileID: 5190642916265612120}
-  checkRadius: 0.5
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 128
-  extraJumpsValue: 1
-  jumpTime: 0.25
 --- !u!114 &7057468190345094496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,10 +208,33 @@ MonoBehaviour:
   attackRange: 0.6
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 98560
   damage: 1
   timeBtwAttack: 0.2
   attackDownKnockbackForce: 20
+--- !u!114 &4197532760514952442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2455277658132523393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058d541e4587214439fdebfa2ef42550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  dashForce: 25
+  jumpForce: 20
+  dashTime: 0.12
+  groundCheck: {fileID: 5190642916265612120}
+  checkRadius: 0.5
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
+  extraJumpsValue: 1
+  jumpTime: 0.25
 --- !u!95 &2526755580450226037
 Animator:
   serializedVersion: 3

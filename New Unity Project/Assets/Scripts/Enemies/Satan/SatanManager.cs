@@ -6,35 +6,41 @@ public class SatanManager : Enemy
 {
     int chooseAttackType;
 
+    [Header("Attack Cooldowns")]
     public float minIdleTime;
     public float maxIdleTime;
     float IdleTime;
-
     public float minAttackDuration;
     public float maxAttackDuration;
     float AttackDuration;
-
     public float summonCD;
     float summonCDTimer;
-
     public float spikeAttackCD;
     float spikeAttackCDTimer;
-
     public float slamAttackCD;
     float slamAttackCDTimer;
-
     public float rainAttackCD;
     float rainAttackCDTimer;
+    bool startedRain = false;
 
+    [Header("Screen Shake")]
+    public float shakeIntensityRainStart;
+    //public float shakeDurationRainStart;
+
+    [Header("Attack Summon Positions")]
     public Transform[] summonPos;
     public Transform[] spikeSummonPos;
     public Transform[] slamStartPos;
     public Transform[] rainSummonPos;
 
+    [Header("Attack Projectiles")]
     public GameObject summonProjectile;
     public GameObject spikeObject;
     public GameObject slamProjectile;
     public GameObject[] rainProjectile;
+
+    [Header("Particle Effects")]
+    public GameObject particleEffect;
 
     protected override void Start()
     {
@@ -43,6 +49,7 @@ public class SatanManager : Enemy
         chooseAttackType = Random.Range(3, 4);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
+        Instantiate(particleEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
     }
 
     void FixedUpdate()
@@ -166,12 +173,20 @@ public class SatanManager : Enemy
 
     void RainAttack()
     {
+        if (!startedRain)
+        {
+            CinemachineShake.Instance.ShakeCamera(shakeIntensityRainStart, AttackDuration);
+
+            startedRain = true;
+        }
+
         if (AttackDuration <= 0)
         {
             animator.SetBool("Idle", true);
             IdleTime = Random.Range(minIdleTime, maxIdleTime);
             chooseAttackType = Random.Range(0, 4);
             AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
+            startedRain = false;
             rainAttackCDTimer = rainAttackCD;
         }
         else

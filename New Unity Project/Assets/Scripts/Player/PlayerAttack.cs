@@ -32,39 +32,52 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.W))
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosUp.position, attackRange, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
-                {
-                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                }
+                Collider2D[] objectsToHit = Physics2D.OverlapCircleAll(attackPosUp.position, attackRange, whatIsEnemies);
                 startTimeBtwAttack = timeBtwAttack;
                 animator.SetBool("AttackUp", true);
+                for (int i = 0; i < objectsToHit.Length; i++)
+                {
+                    objectsToHit[i].GetComponent<Enemy>().TakeDamage(damage);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S))
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosDown.position, attackRange, whatIsEnemies);
+                Collider2D[] objectsToHit = Physics2D.OverlapCircleAll(attackPosDown.position, attackRange, whatIsEnemies);
                 startTimeBtwAttack = timeBtwAttack;
                 animator.SetBool("AttackDown", true);
-                if (enemiesToDamage[0] != null)
+                if (objectsToHit.Length != 0)
                 {
-                    Vector2 newVel = rb.velocity;
-                    newVel.y = attackDownKnockbackForce;
-                    rb.velocity = newVel;
+                    bool canPogo = false;
+                    for (int i = 0; i < objectsToHit.Length; i++)
+                    {
+                        if(objectsToHit[i].GetComponent<Enemy>().canPogo == true)
+                        {
+                            canPogo = true;
+                        }
+                    }
+
+                    if (canPogo)
+                    {
+                        Vector2 newVel = rb.velocity;
+                        newVel.y = attackDownKnockbackForce;
+                        rb.velocity = newVel;
+                    }
                 }
-                for (int i = 0; i < enemiesToDamage.Length; i++)
+                for (int i = 0; i < objectsToHit.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                    objectsToHit[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosHor.position, attackRange, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
-                {
-                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                }
+                Collider2D[] objectsToHit = Physics2D.OverlapCircleAll(attackPosHor.position, attackRange, whatIsEnemies);
                 startTimeBtwAttack = timeBtwAttack;
                 animator.SetBool("AttackHorizontal", true);
+
+                for (int i = 0; i < objectsToHit.Length; i++)
+                {
+                    objectsToHit[i].GetComponent<Enemy>().TakeDamage(damage);
+                }
             }
         }
         else

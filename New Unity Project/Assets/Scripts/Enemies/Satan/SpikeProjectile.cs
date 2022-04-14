@@ -9,13 +9,21 @@ public class SpikeProjectile : MonoBehaviour
 
     private Animator animator;
 
+    private bool hasAttacked = false;
+
     private bool playerIsTouching;
     private PlayerHealth player;
+
+    public Transform pointOfParticles;
+    public GameObject particleEffectEnter;
+    public GameObject particleEffectAttack;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        //pointOfParticles = GetComponentInChildren<Transform>();
+        Instantiate(particleEffectEnter, pointOfParticles.position, Quaternion.Euler(-90, 0, 0));
     }
 
     private void Update()
@@ -23,9 +31,15 @@ public class SpikeProjectile : MonoBehaviour
         if (timeUntilAttack <= 0)
         {
             animator.SetBool("Attack", true);
-            if(playerIsTouching == true)
+            if (playerIsTouching == true)
             {
                 player.TakeDamage(damage);
+            }
+
+            if (!hasAttacked)
+            {
+                hasAttacked = true;
+                Instantiate(particleEffectAttack, pointOfParticles.position, Quaternion.Euler(-90, 0, 0));
             }
         }
         else
