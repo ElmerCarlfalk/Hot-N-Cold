@@ -10,6 +10,8 @@ public class SkeletonManager : Enemy
     public float jumpForce;
     public bool facingRight = false;
     public bool isAttacking = false;
+    private float lastAttack = 0;
+    public float attackDelay;
 
     private Rigidbody2D rb;
 
@@ -53,6 +55,14 @@ public class SkeletonManager : Enemy
         isOnWall = Physics2D.OverlapCircle(wallCheck.position, 0.1f, whatIsGround);
         isPlayerFront = Physics2D.OverlapCircle(attackBoxFront.position, 0.5f, playerLayer);
         isPlayerUp = Physics2D.OverlapCircle(attackBoxUp.position, 0.5f, playerLayer);
+        if(lastAttack >= 1)
+        {
+            isAttacking = false;
+        }
+        else
+        {
+            lastAttack += Time.fixedDeltaTime;
+        }
     }
 
     void ChasePlayer()
@@ -71,10 +81,8 @@ public class SkeletonManager : Enemy
             }
             else if (transform.position.x > player.transform.position.x)
             {
-                //if (transform.position.x - player.transform.position.x > attackRange)
-                //{
-                    rb.velocity = new Vector2(-speed, rb.velocity.y);
-                //}
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+
                 if (!facingRight)
                 {
                     transform.localScale = new Vector2(1, 1);
@@ -84,22 +92,24 @@ public class SkeletonManager : Enemy
             if(isGrounded && isOnWall)
             {
                 rb.velocity = Vector2.up * jumpForce;
-                Debug.Log("Front");
             }
         }
     }
     private void AttackFront()
     {
-        Invoke("StopAttacking", 0.25f);
+        if(isPlayerFront)
+        {
+            player.GetComponent<PlayerHealth>().TakeDamage(1);
+        }
     }
     private void AttackUp()
     {
-        Invoke("StopAttacking", 0.25f);
+        if (isPlayerUp)
+        {
+            player.GetComponent<PlayerHealth>().TakeDamage(1);
+        }
     }
-    private void StopAttacking()
-    {
-        isAttacking = false;
-    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

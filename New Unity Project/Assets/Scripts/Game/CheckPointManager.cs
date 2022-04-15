@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CheckPointManager : MonoBehaviour
 {
-    public Transform checkpoint;
+    public Vector2 checkpoint;
+
     private void Start()
     {
-        checkpoint = transform;
+        checkpoint = transform.position;
     }
 }

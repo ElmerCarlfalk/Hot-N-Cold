@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class CheckPoints : MonoBehaviour
 {
-    GameObject CheckPointManager;
-    GameObject player;
+    CheckPointManager manager;
 
     private void Start()
     {
-        CheckPointManager = GameObject.FindGameObjectWithTag("CheckPointManager");
+        manager = GameObject.FindGameObjectWithTag("CheckPointManager").GetComponent<CheckPointManager>();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Trigger();
+            manager.checkpoint = transform.position;
         }
-    }
-    void Trigger()
-    {
-        CheckPointManager.GetComponent<CheckPointManager>().checkpoint.position = transform.position;
     }
 }
