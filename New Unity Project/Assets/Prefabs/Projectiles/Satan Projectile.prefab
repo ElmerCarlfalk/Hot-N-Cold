@@ -139,3 +139,5 @@ MonoBehaviour:
   veldamp: 2
   stifness: 15
   damp: 3
+  timeBetweenParticles: 0
+  idleParticles: {fileID: 3382126104798090273, guid: b0621f78a9f2d87429c4cbe71234fe1b, type: 3}
