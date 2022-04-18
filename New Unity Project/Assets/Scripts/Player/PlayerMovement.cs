@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimeCounter;
     private bool isDashing = false;
 
+    public float maxFallSpeed;
+
 
     private Rigidbody2D rb;
 
@@ -49,6 +51,13 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Walk();
+
+        if(rb.velocity.y < -maxFallSpeed)
+        {
+            Vector2 vel = rb.velocity;
+            vel.y = maxFallSpeed;
+            rb.velocity = vel;
+        }
     }
 
     void Update()

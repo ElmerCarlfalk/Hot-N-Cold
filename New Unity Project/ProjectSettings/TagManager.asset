@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CheckPointManager
   - Satan
+  - Cinemachine
   layers:
   - Default
   - TransparentFX

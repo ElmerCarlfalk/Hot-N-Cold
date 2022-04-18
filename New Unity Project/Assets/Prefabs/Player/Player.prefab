@@ -42,10 +42,11 @@ GameObject:
   - component: {fileID: 1070552490716614826}
   - component: {fileID: 6132651789892863409}
   - component: {fileID: 6907313199677192211}
+  - component: {fileID: 2526755580450226037}
   - component: {fileID: 7057468190345094496}
   - component: {fileID: 7805565104957667399}
   - component: {fileID: 4197532760514952442}
-  - component: {fileID: 2526755580450226037}
+  - component: {fileID: 4240958304097893659}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -170,6 +171,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4098634, y: 0.75008845}
   m_EdgeRadius: 0
+--- !u!95 &2526755580450226037
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2455277658132523393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33625a86f08bce4499dc3591511888ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7057468190345094496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +248,7 @@ MonoBehaviour:
   dashForce: 25
   jumpForce: 20
   dashTime: 0.12
+  maxFallSpeed: 5
   groundCheck: {fileID: 5190642916265612120}
   checkRadius: 0.5
   whatIsGround:
@@ -235,25 +256,21 @@ MonoBehaviour:
     m_Bits: 128
   extraJumpsValue: 1
   jumpTime: 0.25
---- !u!95 &2526755580450226037
-Animator:
-  serializedVersion: 3
+--- !u!114 &4240958304097893659
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2455277658132523393}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 33625a86f08bce4499dc3591511888ad, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ea29fce64a06b468d78351179fb5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeUntilLook: 0
+  lookUpOffset: 0
+  lookDownOffset: 0
 --- !u!1 &3604845648117054107
 GameObject:
   m_ObjectHideFlags: 0

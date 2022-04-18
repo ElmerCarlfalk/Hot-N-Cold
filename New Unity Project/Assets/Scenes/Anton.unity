@@ -695,6 +695,11 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &441312911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3604845648117054107, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
+  m_PrefabInstance: {fileID: 1621584320837088556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1013229643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1977,7 +1982,7 @@ GameObject:
   - component: {fileID: 1663849014}
   m_Layer: 0
   m_Name: CM vcam1
-  m_TagString: Untagged
+  m_TagString: Cinemachine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2004,7 +2009,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1579313376}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6
+    OrthographicSize: 8.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2044,7 +2049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Offset: {x: 0, y: 1, z: 0}
+  m_Offset: {x: 0, y: 6, z: 0}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
 --- !u!114 &1663849013
@@ -2132,12 +2137,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 20.578463, y: 8.261122}
-      - {x: 12.112032, y: 8.23237}
-      - {x: 12.001221, y: 10.053578}
-      - {x: -35.933693, y: 10.003048}
-      - {x: -35.97695, y: -3.943203}
-      - {x: 20.551237, y: -3.942954}
+    - - {x: 20.444235, y: 12.944609}
+      - {x: 11.373568, y: 12.934054}
+      - {x: 11.347137, y: 12.979754}
+      - {x: 9.204353, y: 16.68486}
+      - {x: -36.136295, y: 16.688953}
+      - {x: -36.383366, y: -4.1945267}
+      - {x: 20.466465, y: -4.1949153}
 --- !u!1 &1738010186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2309,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 8.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2327,7 +2333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826176813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.2099905, y: 0.68281126, z: -10}
+  m_LocalPosition: {x: 13.209999, y: 3.014975, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2026189269}
@@ -2870,7 +2876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2104620704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3036,6 +3042,26 @@ PrefabInstance:
     - target: {fileID: 2455277658132523393, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
+      propertyPath: camPos
+      value: 
+      objectReference: {fileID: 441312911}
+    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
+      propertyPath: lookUpOffset
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
+      propertyPath: timeUntilLook
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
+      propertyPath: lookDownOffset
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057468190345094496, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7825136020068546163, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
       propertyPath: m_RootOrder
