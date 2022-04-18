@@ -27,7 +27,7 @@ public class BossProjectile : MonoBehaviour
 
     private void Update()
     {
-        if(timeBetweenParticlesCounter <= 0)
+        if (timeBetweenParticlesCounter <= 0)
         {
             Instantiate(idleParticles, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.Euler(0, 0, 0));
             timeBetweenParticlesCounter = timeBetweenParticles;
@@ -44,7 +44,7 @@ public class BossProjectile : MonoBehaviour
         float x = dir.magnitude;
         dir.Normalize();
         float v = Vector2.Dot(rb.velocity, dir);
-        rb.velocity = rb.velocity * (1 - veldamp * Time.fixedDeltaTime) + dir * (stifness * x - damp * v) * Time.fixedDeltaTime;
+        rb.velocity = rb.velocity * (1 - veldamp * Time.fixedDeltaTime) + dir * (stifness - damp) * Time.fixedDeltaTime;
 
         if (rb.velocity.magnitude > maxSpeed)
         {

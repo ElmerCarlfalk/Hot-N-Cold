@@ -42,17 +42,17 @@ public class SatanManager : Enemy
     public GameObject[] rainProjectile;
 
     [Header("Particle Effects")]
-    public GameObject particleEffect;
+    public GameObject idleEffect;
 
     protected override void Start()
     {
         base.Start();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(3, 4);
+        chooseAttackType = Random.Range(0, 1);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
         timeUntilRainAttackCounter = timeUntilRainAttack;
-        Instantiate(particleEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
+        Instantiate(idleEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
     }
 
     void FixedUpdate()

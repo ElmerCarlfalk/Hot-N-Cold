@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  maxSpeed: 15
-  veldamp: 2
-  stifness: 15
-  damp: 3
-  timeBetweenParticles: 0
+  maxSpeed: 12
+  veldamp: 0.4
+  stifness: 25
+  damp: 1.2
+  timeBetweenParticles: 0.1
   idleParticles: {fileID: 3382126104798090273, guid: b0621f78a9f2d87429c4cbe71234fe1b, type: 3}

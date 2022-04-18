@@ -708,7 +708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775113065373881669, guid: d2c65d9b16e49ff4388444b5098ab670, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775113065373881669, guid: d2c65d9b16e49ff4388444b5098ab670, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1905,6 +1905,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1621584322147655116, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
   m_PrefabInstance: {fileID: 1621584320837088556}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1596966882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6345079984847298545, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_Name
+      value: Particle Satan Orb SpawningIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -39.59243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345079984847298556, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
 --- !u!1 &1663849009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,7 +2030,7 @@ Transform:
   m_Children:
   - {fileID: 1828253097}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1663849012
 MonoBehaviour:
@@ -2145,7 +2202,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1778110112
 GameObject:
@@ -2190,7 +2247,7 @@ Transform:
   - {fileID: 1423804195}
   - {fileID: 162897825}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1826176813
 GameObject:
@@ -2275,7 +2332,7 @@ Transform:
   m_Children:
   - {fileID: 2026189269}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1826176818
 MonoBehaviour:
@@ -2745,7 +2802,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2092223124
 BoxCollider2D:
@@ -2888,7 +2945,7 @@ RectTransform:
   m_Children:
   - {fileID: 1991575850}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2912,6 +2969,63 @@ MonoBehaviour:
   fadeOutSpeed: 0.8
   timeUntilTransition: 1
   nextGameLevel: 0
+--- !u!1001 &739706423357626575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -35.61888
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960140, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 739706424413960143, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+      propertyPath: m_Name
+      value: Particle Satan Orb SpawningOut
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
 --- !u!1001 &1621584320837088556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2925,7 +3039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7825136020068546163, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7825136020068546163, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2982,7 +3096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3113234801844327173, guid: ff8d1ad533cc7204685b34f8ca62d91b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3113234801844327173, guid: ff8d1ad533cc7204685b34f8ca62d91b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3026,6 +3140,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8d1ad533cc7204685b34f8ca62d91b, type: 3}
+--- !u!1001 &6795795349990023485
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -39.916267
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159835, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795795348817159838, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
+      propertyPath: m_Name
+      value: Particle Satan Orb Spawn
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5fd8987046c8585498839b6078b987cf, type: 3}
 --- !u!1001 &7224116219467117667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3043,7 +3214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7224116219054933481, guid: 4123cf3649c02164bb87b5c89aea8800, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7224116219054933481, guid: 4123cf3649c02164bb87b5c89aea8800, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3096,11 +3267,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1743259976789832778, guid: b0621f78a9f2d87429c4cbe71234fe1b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1743259976789832778, guid: b0621f78a9f2d87429c4cbe71234fe1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.779042
+      value: -13.63
       objectReference: {fileID: 0}
     - target: {fileID: 1743259976789832778, guid: b0621f78a9f2d87429c4cbe71234fe1b, type: 3}
       propertyPath: m_LocalPosition.y
