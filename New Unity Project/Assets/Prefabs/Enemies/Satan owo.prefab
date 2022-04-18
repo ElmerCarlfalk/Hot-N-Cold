@@ -879,7 +879,7 @@ MonoBehaviour:
   maxIdleTime: 3
   minAttackDuration: 10
   maxAttackDuration: 15
-  summonCD: 0.8
+  summonCD: 4
   spikeAttackCD: 3
   slamAttackCD: 5
   rainAttackCD: 0.15

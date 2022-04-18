@@ -15,27 +15,10 @@ public class BossProjectile : MonoBehaviour
     public float stifness;
     public float damp;
 
-    public float timeBetweenParticles;
-    private float timeBetweenParticlesCounter;
-    public GameObject idleParticles;
-
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        if(timeBetweenParticlesCounter <= 0)
-        {
-            Instantiate(idleParticles, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.Euler(0, 0, 0));
-            timeBetweenParticlesCounter = timeBetweenParticles;
-        }
-        else
-        {
-            timeBetweenParticlesCounter -= Time.deltaTime;
-        }
     }
 
     void FixedUpdate()
