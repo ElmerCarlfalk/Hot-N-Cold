@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     public float invTime;
     private float invTimeCounter;
-    bool isInv = true;
+    bool isInv = false;
 
     void Start()
     {

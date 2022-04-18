@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8192865332252998831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8192865332252998830}
+  - component: {fileID: 5455256005055665132}
+  m_Layer: 14
+  m_Name: Pre Summon Satan Orb
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8192865332252998830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192865332252998831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.26028305, y: 4.471327, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5455256005055665132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192865332252998831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539d4120492c8b54ea442fb39b35d50c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  summonProjectile: {fileID: 1276989705524158117, guid: 2e9f4fb608cb765478f9fa8eb25a3172, type: 3}
+  summoningParticlesOut: {fileID: 739706424413960143, guid: 8d295fed637b34143807fc160ffc8cbb, type: 3}
+  summoningParticlesIn: {fileID: 6345079984847298545, guid: a5ab1037185ef524a84f86e49ec11b27, type: 3}
+  summonParticles: {fileID: 6795795348817159838, guid: 5fd8987046c8585498839b6078b987cf, type: 3}

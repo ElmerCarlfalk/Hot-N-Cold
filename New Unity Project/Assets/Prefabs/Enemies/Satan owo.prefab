@@ -879,7 +879,7 @@ MonoBehaviour:
   maxIdleTime: 3
   minAttackDuration: 10
   maxAttackDuration: 15
-  summonCD: 4
+  summonCD: 1
   spikeAttackCD: 3
   slamAttackCD: 5
   rainAttackCD: 0.15
@@ -925,14 +925,14 @@ MonoBehaviour:
   - {fileID: 3113234802177826951}
   - {fileID: 3113234800809848109}
   - {fileID: 3113234801943112107}
-  summonProjectile: {fileID: 1276989705524158117, guid: 2e9f4fb608cb765478f9fa8eb25a3172, type: 3}
+  summonProjectile: {fileID: 8192865332252998831, guid: 7afb86d3a2a126542add50614a8fd232, type: 3}
   spikeObject: {fileID: 8760871162586958703, guid: 0ccc3b735f5f62b459c959dfa61824ad, type: 3}
   slamProjectile: {fileID: 6664434266818634304, guid: 8512526210cdc7648bc17f6bf7ecab52, type: 3}
   rainProjectile:
   - {fileID: 7695024754273573679, guid: b246142faf0b40e41865868b8356e9f0, type: 3}
   - {fileID: 4451912878483040299, guid: b069ac325ff1fd04b82cef2904fff5c3, type: 3}
   - {fileID: 7391106212112694053, guid: 1b5474e78f8a67a4b9b0274db687d7f9, type: 3}
-  particleEffect: {fileID: 4756259216432704380, guid: a0745bc54c464b6469f6cfe984b9b5b4, type: 3}
+  idleEffect: {fileID: 4756259216432704380, guid: a0745bc54c464b6469f6cfe984b9b5b4, type: 3}
 --- !u!1 &3113234801902723592
 GameObject:
   m_ObjectHideFlags: 0
