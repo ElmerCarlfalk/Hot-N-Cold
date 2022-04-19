@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilLook: 1
+  confineTime: 1
   lookUpOffset: 3
   lookDownOffset: 3
   camPos: {fileID: 3604845648117054107}
