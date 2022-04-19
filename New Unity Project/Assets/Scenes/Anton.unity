@@ -2810,7 +2810,7 @@ MonoBehaviour:
   fadeOutSpeed: 0.8
   timeUntilTransition: 1
   nextGameLevel: 0
-  changeScene: 0
+  changeScene: 1
 --- !u!1001 &739706423357626575
 PrefabInstance:
   m_ObjectHideFlags: 0
