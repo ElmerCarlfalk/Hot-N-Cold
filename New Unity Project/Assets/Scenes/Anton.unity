@@ -1993,7 +1993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663849009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.179999, y: -2.985025, z: -10}
+  m_LocalPosition: {x: 13.209999, y: -2.985025, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1828253097}
@@ -2238,7 +2238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826176813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.179999, y: 3.014975, z: -10}
+  m_LocalPosition: {x: 13.209999, y: 3.014975, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2026189269}
@@ -2935,10 +2935,6 @@ PrefabInstance:
     - target: {fileID: 2455277658132523393, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
-      propertyPath: confineTime
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7825136020068546163, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
       propertyPath: m_RootOrder
