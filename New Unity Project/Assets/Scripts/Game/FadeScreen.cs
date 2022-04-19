@@ -17,6 +17,8 @@ public class FadeScreen : MonoBehaviour
     public float timeUntilTransition;
     public int nextGameLevel;
 
+    public bool changeScene;
+
     private void Start()
     {
         Instance = this;
@@ -33,9 +35,15 @@ public class FadeScreen : MonoBehaviour
                 alpha -= Time.deltaTime * fadeInSpeed;
                 UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
             }
+            else
+            {
+                UIImage.enabled = false;
+            }
         }
         else if (!fadeGameIn)
         {
+            UIImage.enabled = true;
+
             if (alpha < 1)
             {
                 alpha += Time.deltaTime * fadeOutSpeed;
@@ -45,7 +53,14 @@ public class FadeScreen : MonoBehaviour
             {
                 if(timeUntilTransition <= 0)
                 {
-                    SceneManager.LoadScene(nextGameLevel);
+                    if (changeScene)
+                    {
+                        SceneManager.LoadScene(nextGameLevel);
+                    }
+                    else
+                    {
+                        FadeImage(true);
+                    }
                 }
                 else
                 {

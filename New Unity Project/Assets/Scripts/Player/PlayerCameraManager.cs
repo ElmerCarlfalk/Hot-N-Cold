@@ -7,6 +7,8 @@ public class PlayerCameraManager : MonoBehaviour
     [Header("Cooldowns")]
     public float timeUntilLook;
     private float timeUntilLookCounter;
+    public float confineTime;
+    private float confineTimeCounter;
 
     [Header("Offsets")]
     public float lookUpOffset;
@@ -14,11 +16,14 @@ public class PlayerCameraManager : MonoBehaviour
     private float normalOffset;
 
     public GameObject camPos;
+    private Cinemachine.CinemachineConfiner cinemachine;
 
     void Start()
     {
+        cinemachine = GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<Cinemachine.CinemachineConfiner>();
         normalOffset = camPos.transform.localPosition.y;
         timeUntilLookCounter = timeUntilLook;
+        confineTimeCounter = confineTime;
     }
 
     void Update()
@@ -41,6 +46,14 @@ public class PlayerCameraManager : MonoBehaviour
                     Vector2 camPosOffset = camPos.transform.localPosition;
                     camPosOffset.y = normalOffset;
                     camPos.transform.localPosition = camPosOffset;
+                    if (confineTimeCounter <= 0)
+                    {
+                        cinemachine.m_ConfineScreenEdges = true;
+                    }
+                    else
+                    {
+                        confineTimeCounter -= Time.deltaTime;
+                    }
                 }
             }
             else
@@ -49,6 +62,14 @@ public class PlayerCameraManager : MonoBehaviour
                 Vector2 camPosOffset = camPos.transform.localPosition;
                 camPosOffset.y = normalOffset;
                 camPos.transform.localPosition = camPosOffset;
+                if (confineTimeCounter <= 0)
+                {
+                    cinemachine.m_ConfineScreenEdges = true;
+                }
+                else
+                {
+                    confineTimeCounter -= Time.deltaTime;
+                }
             }
         }
         else
@@ -57,6 +78,14 @@ public class PlayerCameraManager : MonoBehaviour
             Vector2 camPosOffset = camPos.transform.localPosition;
             camPosOffset.y = normalOffset;
             camPos.transform.localPosition = camPosOffset;
+            if(confineTimeCounter <= 0)
+            {
+                cinemachine.m_ConfineScreenEdges = true;
+            }
+            else
+            {
+                confineTimeCounter -= Time.deltaTime;
+            }
         }
     }
 
@@ -67,6 +96,8 @@ public class PlayerCameraManager : MonoBehaviour
             Vector2 camPosOffset = camPos.transform.localPosition;
             camPosOffset.y = normalOffset - lookDownOffset;
             camPos.transform.localPosition = camPosOffset;
+            cinemachine.m_ConfineScreenEdges = false;
+            confineTimeCounter = confineTime;
         }
         else
         {
@@ -81,6 +112,8 @@ public class PlayerCameraManager : MonoBehaviour
             Vector2 camPosOffset = camPos.transform.localPosition;
             camPosOffset.y = normalOffset + lookUpOffset;
             camPos.transform.localPosition = camPosOffset;
+            cinemachine.m_ConfineScreenEdges = false;
+            confineTimeCounter = confineTime;
         }
         else
         {

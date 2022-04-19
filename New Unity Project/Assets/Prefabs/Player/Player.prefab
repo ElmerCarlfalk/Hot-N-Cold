@@ -138,7 +138,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: ada7c755cde39434dbadaf34b3eed019, type: 2}
   m_Interpolate: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
   dashForce: 25
   jumpForce: 20
   dashTime: 0.12
-  maxFallSpeed: 5
+  maxFallSpeed: 30
   groundCheck: {fileID: 5190642916265612120}
   checkRadius: 0.5
   whatIsGround:

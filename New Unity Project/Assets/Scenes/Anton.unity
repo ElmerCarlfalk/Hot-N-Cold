@@ -695,11 +695,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1 &441312911 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3604845648117054107, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
-  m_PrefabInstance: {fileID: 1621584320837088556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1013229643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2876,7 +2871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2104620704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,24 +3039,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
-      propertyPath: camPos
-      value: 
-      objectReference: {fileID: 441312911}
-    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
-      propertyPath: lookUpOffset
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
-      propertyPath: timeUntilLook
+      propertyPath: confineTime
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240958304097893659, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
-      propertyPath: lookDownOffset
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057468190345094496, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
-      propertyPath: maxHealth
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7825136020068546163, guid: ada93b7a3113c2140aec3ad3cca4f2b1, type: 3}
       propertyPath: m_RootOrder

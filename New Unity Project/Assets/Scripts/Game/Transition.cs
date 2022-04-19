@@ -9,7 +9,12 @@ public class Transition : MonoBehaviour
         PlayerHealth player = hitInfo.GetComponent<PlayerHealth>();
         if(player != null)
         {
-            FadeScreen.Instance.FadeImage(false);
+            Fade();
         }
+    }
+
+    void Fade()
+    {
+        FadeScreen.Instance.FadeImage(false);
     }
 }

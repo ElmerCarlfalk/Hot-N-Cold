@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float maxFallSpeed;
 
-
     private Rigidbody2D rb;
 
     private bool facingRight = true;
@@ -51,13 +50,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Walk();
-
-        if(rb.velocity.y < -maxFallSpeed)
-        {
-            Vector2 vel = rb.velocity;
-            vel.y = maxFallSpeed;
-            rb.velocity = vel;
-        }
+        
+        rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, maxFallSpeed).y);
     }
 
     void Update()
