@@ -38,6 +38,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool AirBorn = false;
 
+    [Header("On Enter")]
+    public GameObject startLandParticles;
+    public float shakeIntensity;
+    public float shakeTime;
+    private bool hasLanded = false;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -49,15 +55,31 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Walk();
+        if (hasLanded)
+        {
+            Walk();
+        }
         
         rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, maxFallSpeed).y);
     }
 
     void Update()
     {
-        Jump();
-        Dash();
+        if (!hasLanded)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+            if (isGrounded)
+            {
+                hasLanded = true;
+                Instantiate(startLandParticles, new Vector3(transform.position.x, transform.position.y - 1.12f, transform.position.z - 2), Quaternion.Euler(-90, 0, 0));
+                CinemachineShake.Instance.ShakeCamera(shakeIntensity, shakeTime);
+            }
+        }
+        else
+        {
+            Jump();
+            Dash();
+        }
     }
 
     void Walk()

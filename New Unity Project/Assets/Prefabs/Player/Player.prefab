@@ -256,6 +256,9 @@ MonoBehaviour:
     m_Bits: 128
   extraJumpsValue: 1
   jumpTime: 0.25
+  startLandParticles: {fileID: 2648333122013809432, guid: 8495b27828451eb45a7f98339c2f3888, type: 3}
+  shakeIntensity: 1
+  shakeTime: 0.8
 --- !u!114 &4240958304097893659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,10 +272,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilLook: 1
-  confineTime: 1
   lookUpOffset: 3
   lookDownOffset: 3
+  normalOffset: 0
   camPos: {fileID: 3604845648117054107}
+  canLook: 0
 --- !u!1 &3604845648117054107
 GameObject:
   m_ObjectHideFlags: 0
