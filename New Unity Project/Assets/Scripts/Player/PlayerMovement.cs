@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject startLandParticles;
     public float shakeIntensity;
     public float shakeTime;
-    private bool hasLanded = false;
+    private bool canMove = false;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (hasLanded)
+        if (canMove)
         {
             Walk();
         }
@@ -69,12 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!hasLanded)
+        if (!canMove)
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
             if (isGrounded)
             {
-                hasLanded = true;
+                canMove = true;
                 Instantiate(startLandParticles, new Vector3(transform.position.x, transform.position.y - 0.7f, transform.position.z - 2), Quaternion.Euler(-90, 0, 0));
                 CinemachineShake.Instance.ShakeCamera(shakeIntensity, shakeTime);
             }
