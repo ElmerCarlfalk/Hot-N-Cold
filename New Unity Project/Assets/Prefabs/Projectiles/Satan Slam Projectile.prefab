@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3973104543207027469}
   - component: {fileID: 2559023611621319736}
   - component: {fileID: 7724812138451478388}
-  - component: {fileID: 5260502242646177565}
+  - component: {fileID: 7083902491481246789}
   - component: {fileID: 3129137651543887825}
   m_Layer: 12
   m_Name: Satan Slam Projectile
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 972fb76d305b0ad4eac47e73c3cb6fec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &5260502242646177565
+--- !u!61 &7083902491481246789
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00000047683716, y: 0.018660903}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2381659, y: 3.5148132}
   m_EdgeRadius: 0
 --- !u!114 &3129137651543887825
 MonoBehaviour:
@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e857c8f39ad87a43a41b90757ce6c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilAttack: 2
+  timeUntilAttack: 0.5
   damage: 1
-  attackSpeed: 60
+  attackSpeed: 80

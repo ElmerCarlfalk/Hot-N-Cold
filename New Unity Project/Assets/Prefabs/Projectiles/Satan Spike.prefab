@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe148d7af4bbaed419904f401af19a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   timeUntilAttack: 1
   pointOfParticles: {fileID: 2305410543215703968}
   particleEffectEnter: {fileID: 2003149892059126462, guid: a227686b66771074882d27fb59d1168e, type: 3}

@@ -872,7 +872,7 @@ MonoBehaviour:
   damage: 0
   canPogo: 0
   takeDamageEffect: {fileID: 7801333494547296213, guid: c8341017ef60f734e84ec93285bcba3a, type: 3}
-  spawnParticles: {fileID: 7801333494547296213, guid: c8341017ef60f734e84ec93285bcba3a, type: 3}
+  spawnParticles: {fileID: 53016913497702689, guid: 5b3d7458b7e2a6e419ef83ca1abeaefc, type: 3}
   minIdleTime: 1
   maxIdleTime: 3
   minAttackDuration: 10
@@ -884,6 +884,7 @@ MonoBehaviour:
   timeUntilRainAttack: 1
   timeUntilSecondDeathParticle: 1.5
   shakeIntensityRainStart: 1
+  shakeIntensityEnter: 4
   shakeIntensityDeathStart: 5
   shakeIntensityDeathEnd: 7
   shakeDurationDeathEnd: 0.5

@@ -24,13 +24,19 @@ public class SatanManager : Enemy
     public float timeUntilRainAttack;
     float timeUntilRainAttackCounter;
     bool startedRain = false;
+    float timeUntilStart;
+    bool hasStarted = false;
     float firstDeathParticleDuration;
     public float timeUntilSecondDeathParticle;
     bool isDead = false;
 
+
     [Header("Screen Shake")]
     public float shakeIntensityRainStart;
     //public float shakeDurationRainStart;
+
+    public float shakeIntensityEnter;
+
     public float shakeIntensityDeathStart;
     public float shakeIntensityDeathEnd;
     public float shakeDurationDeathEnd;
@@ -55,49 +61,66 @@ public class SatanManager : Enemy
     {
         base.Start();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(0, 1);
+        chooseAttackType = Random.Range(2, 3);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
         timeUntilRainAttackCounter = timeUntilRainAttack;
         firstDeathParticleDuration = deathEffects[0].GetComponent<ParticleSystem>().main.duration;
-        Instantiate(idleEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
+        timeUntilStart = spawnParticles.GetComponent<ParticleSystem>().main.duration;
+        CinemachineShake.Instance.ShakeCamera(shakeIntensityEnter, timeUntilStart);
+        PlayerMovement.Instance.Stun(timeUntilStart);
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (!isDead)
+        if (hasStarted)
         {
-            if (IdleTime <= 0)
+            if (!isDead)
             {
-                if (chooseAttackType == 0)
+                if (IdleTime <= 0)
                 {
-                    animator.SetBool("SummonAttack", true);
-                    SummonAttack();
-                }
-                else if (chooseAttackType == 1)
-                {
-                    animator.SetBool("SpikeAttack", true);
-                    SpikeAttack();
-                }
-                else if (chooseAttackType == 2)
-                {
-                    animator.SetBool("SlamAttack", true);
-                    SlamAttack();
+                    if (chooseAttackType == 0)
+                    {
+                        animator.SetBool("SummonAttack", true);
+                        SummonAttack();
+                    }
+                    else if (chooseAttackType == 1)
+                    {
+                        animator.SetBool("SpikeAttack", true);
+                        SpikeAttack();
+                    }
+                    else if (chooseAttackType == 2)
+                    {
+                        animator.SetBool("SlamAttack", true);
+                        SlamAttack();
+                    }
+                    else
+                    {
+                        animator.SetBool("RainAttack", true);
+                        RainAttack();
+                    }
                 }
                 else
                 {
-                    animator.SetBool("RainAttack", true);
-                    RainAttack();
+                    IdleTime -= Time.fixedDeltaTime;
                 }
             }
             else
             {
-                IdleTime -= Time.fixedDeltaTime;
+                Die();
             }
         }
         else
         {
-            Die();
+            if(timeUntilStart <= 0)
+            {
+                Instantiate(idleEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
+                hasStarted = true;
+            }
+            else
+            {
+                timeUntilStart -= Time.deltaTime;
+            }
         }
     }
 

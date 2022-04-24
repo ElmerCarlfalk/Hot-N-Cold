@@ -6,6 +6,8 @@ using UnityEngine.Windows.Speech;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get; private set; }
+
     [Header("Values")]
     public float speed;
     public float dashForce;
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpTime;
     private float jumpTimeCounter;
     private bool isJumping;
+    private float stunTime = 0;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -41,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject startLandParticles;
     public float shakeIntensity;
     public float shakeTime;
-    private bool canMove = false;
+    private bool hasEntered = false;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -59,9 +62,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (canMove)
+        if (stunTime <= 0)
         {
-            Walk();
+            if (hasEntered)
+            {
+                Walk();
+            }
         }
         
         rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, maxFallSpeed).y);
@@ -69,20 +75,27 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!canMove)
+        if(stunTime <= 0)
         {
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-            if (isGrounded)
+            if (!hasEntered)
             {
-                canMove = true;
-                Instantiate(startLandParticles, new Vector3(transform.position.x, transform.position.y - 0.7f, transform.position.z - 2), Quaternion.Euler(-90, 0, 0));
-                CinemachineShake.Instance.ShakeCamera(shakeIntensity, shakeTime);
+                isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+                if (isGrounded)
+                {
+                    hasEntered = true;
+                    Instantiate(startLandParticles, new Vector3(transform.position.x, transform.position.y - 0.7f, transform.position.z - 2), Quaternion.Euler(-90, 0, 0));
+                    CinemachineShake.Instance.ShakeCamera(shakeIntensity, shakeTime);
+                }
+            }
+            else
+            {
+                Jump();
+                Dash();
             }
         }
         else
         {
-            Jump();
-            Dash();
+            stunTime -= Time.deltaTime;
         }
     }
 
@@ -245,6 +258,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    public void Stun(float stunDuration)
+    {
+        stunTime = stunDuration;
     }
 
     void OnDrawGizmosSelected()
