@@ -61,7 +61,7 @@ public class SatanManager : Enemy
     {
         base.Start();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(2, 3);
+        chooseAttackType = Random.Range(0, 4);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
         timeUntilRainAttackCounter = timeUntilRainAttack;
@@ -268,6 +268,7 @@ public class SatanManager : Enemy
             {
                 CinemachineShake.Instance.ShakeCamera(shakeIntensityDeathEnd, shakeDurationDeathEnd);
                 Instantiate(deathEffects[1], new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
+                FadeScreen.Instance.FadeImage(false, 2);
                 Destroy(gameObject);
             }
             else

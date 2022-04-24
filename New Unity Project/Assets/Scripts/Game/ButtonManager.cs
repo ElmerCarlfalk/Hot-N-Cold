@@ -11,7 +11,7 @@ public class ButtonManager : MonoBehaviour
     //Byter till spel scenen
     public void StartButton()
     {
-        FadeScreen.Instance.FadeImage(false);
+        FadeScreen.Instance.FadeImage(false, 0);
     }
 
     public void MenuButton()

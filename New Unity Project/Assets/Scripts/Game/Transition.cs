@@ -15,6 +15,6 @@ public class Transition : MonoBehaviour
 
     void Fade()
     {
-        FadeScreen.Instance.FadeImage(false);
+        FadeScreen.Instance.FadeImage(false, 0);
     }
 }

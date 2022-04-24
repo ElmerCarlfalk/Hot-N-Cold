@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         animator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
         dashTimeCounter = dashTime;
@@ -95,6 +96,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            animator.SetFloat("Speed", 0);
+            animator.SetBool("Dash", false);
+            rb.velocity = new Vector2(0, rb.velocity.y);
             stunTime -= Time.deltaTime;
         }
     }

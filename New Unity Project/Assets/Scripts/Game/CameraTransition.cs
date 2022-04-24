@@ -14,6 +14,12 @@ public class CameraTransition : MonoBehaviour
     public bool lockY;
     public float lockHeight;
 
+    [Header("Boss Room")]
+    public bool bossRoom = false;
+    public GameObject currentCamera;
+    public GameObject bossCamera;
+    public GameObject door;
+
     [Header("On Start")]
     public bool activateCamera = false;
 
@@ -22,18 +28,25 @@ public class CameraTransition : MonoBehaviour
         PlayerHealth player = hitInfo.GetComponent<PlayerHealth>();
         if(player != null)
         {
-            if (lockY)
+            if (bossRoom)
             {
-                Lock();
+                BossRoom();
             }
             else
             {
-                Unlock();
-            }
+                if (lockY)
+                {
+                    Lock();
+                }
+                else
+                {
+                    Unlock();
+                }
 
-            if (activateCamera)
-            {
-                CameraTransitionManager.Instance.ActivateCamera();
+                if (activateCamera)
+                {
+                    CameraTransitionManager.Instance.ActivateCamera();
+                }
             }
         }
     }
@@ -53,5 +66,13 @@ public class CameraTransition : MonoBehaviour
         PlayerCameraManager.Instance.normalOffset = camPosOffset.y;
         CameraTransitionManager.Instance.lockY = false;
         PlayerCameraManager.Instance.canLook = true;
+    }
+
+    void BossRoom()
+    {
+        currentCamera.SetActive(false);
+        bossCamera.SetActive(true);
+        door.SetActive(true);
+        PlayerCameraManager.Instance.canLook = false;
     }
 }

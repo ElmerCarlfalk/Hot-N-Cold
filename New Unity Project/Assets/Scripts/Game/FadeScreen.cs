@@ -15,6 +15,8 @@ public class FadeScreen : MonoBehaviour
     private float alpha;
     private bool fadeGameIn = true;
 
+    private float timeUntilFade = 0;
+
     public float timeUntilTransition;
     public int nextGameLevel;
 
@@ -50,21 +52,28 @@ public class FadeScreen : MonoBehaviour
             {
                 UIImage.enabled = true;
 
-                if (alpha < 1)
+                if (timeUntilFade <= 0)
                 {
-                    alpha += Time.deltaTime * fadeOutSpeed;
-                    UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
+                    if (alpha < 1)
+                    {
+                        alpha += Time.deltaTime * fadeOutSpeed;
+                        UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
+                    }
+                    else //Extra Time for screen to be stay dark
+                    {
+                        if (timeUntilTransition <= 0)
+                        {
+                            SceneManager.LoadScene(nextGameLevel);
+                        }
+                        else
+                        {
+                            timeUntilTransition -= Time.deltaTime;
+                        }
+                    }
                 }
-                else //Extra Time for screen to be stay dark
+                else
                 {
-                    if (timeUntilTransition <= 0)
-                    {
-                        SceneManager.LoadScene(nextGameLevel);
-                    }
-                    else
-                    {
-                        timeUntilTransition -= Time.deltaTime;
-                    }
+                    timeUntilFade -= Time.deltaTime;
                 }
             }
         }
@@ -99,10 +108,11 @@ public class FadeScreen : MonoBehaviour
         }
     }
 
-    public void FadeImage(bool fadeIn)
+    public void FadeImage(bool fadeIn, float timeUntilFadeStart)
     {
         alpha = UIImage.color.a;
         fadeGameIn = fadeIn;
+        timeUntilFade = timeUntilFadeStart;
     }
 
     public void FlashImage()
