@@ -6,37 +6,37 @@ using UnityEngine.Windows.Speech;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Animator animator;
+    [Header("Values")]
     public float speed;
     public float dashForce;
     public float jumpForce;
     private float moveInput;
-
-    public float dashTime;
-    private float dashTimeCounter;
-    private bool isDashing = false;
+    public int extraJumpsValue;
+    private int extraJumps;
 
     public float maxFallSpeed;
 
-    private Rigidbody2D rb;
-
     private bool facingRight = true;
+    private float playerGravity;
+    private bool AirBorn = false;
 
-    private bool isGrounded;
-    public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask whatIsGround;
-
-    private int extraJumps;
-    public int extraJumpsValue;
-
-    private float jumpTimeCounter;
+    [Header("Timers")]
+    public float dashTime;
+    private float dashTimeCounter;
+    private bool isDashing = false;
+    public float dashCD;
+    private float dashCDCounter;
+    private bool canDash = true;
     public float jumpTime;
+    private float jumpTimeCounter;
     private bool isJumping;
 
-    private float playerGravity;
 
-    private bool AirBorn = false;
+    [Header("Ground Check")]
+    public Transform groundCheck;
+    public float checkRadius;
+    private bool isGrounded;
+    public LayerMask whatIsGround;
 
     [Header("On Enter")]
     public GameObject startLandParticles;
@@ -44,10 +44,15 @@ public class PlayerMovement : MonoBehaviour
     public float shakeTime;
     private bool hasLanded = false;
 
+    private Animator animator;
+    private Rigidbody2D rb;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
+        dashTimeCounter = dashTime;
+        dashCDCounter = dashCD;
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         playerGravity = rb.gravityScale;
@@ -185,15 +190,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (moveInput != 0)
+            if (canDash)
             {
-                animator.SetBool("Dash", true);
-                Vector2 newVel = Vector2.right * dashForce * moveInput;
-                isDashing = true;
-                isJumping = false;
-                dashTimeCounter = dashTime;
-                rb.velocity = newVel;
-                rb.gravityScale = 0;
+                if (moveInput != 0)
+                {
+                    animator.SetBool("Dash", true);
+                    Vector2 newVel = Vector2.right * dashForce * moveInput;
+                    isDashing = true;
+                    canDash = false;
+                    isJumping = false;
+                    rb.velocity = newVel;
+                    rb.gravityScale = 0;
+                }
             }
         }
 
@@ -203,11 +211,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 animator.SetBool("Dash", false);
                 rb.gravityScale = playerGravity;
+                dashTimeCounter = dashTime;
                 isDashing = false;
             }
             else
             {
                 dashTimeCounter -= Time.deltaTime;
+            }
+        }
+        else if (!canDash)
+        {
+            if(dashCDCounter <= 0)
+            {
+                dashCDCounter = dashCD;
+                canDash = true;
+            }
+            else
+            {
+                dashCDCounter -= Time.deltaTime;
             }
         }
     }
