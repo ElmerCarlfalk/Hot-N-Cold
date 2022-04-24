@@ -11,15 +11,16 @@ public class Enemy : MonoBehaviour
     [Header("Combat")]
     public int damage;
     public bool canPogo = true;
-    public bool shakeScreen = false;
-    public float shakeIntensity;
-    public float shakeDuration;
     public GameObject takeDamageEffect;
+
+    [Header("On Spawn")]
+    public GameObject spawnParticles;
 
     protected Animator animator;
 
     protected virtual void Start()
     {
+        Instantiate(spawnParticles, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
     }
@@ -29,10 +30,6 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
         Instantiate(takeDamageEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
-        if (shakeScreen)
-        {
-            CinemachineShake.Instance.ShakeCamera(shakeIntensity, shakeDuration);
-        }
 
         if (currentHealth <= 0)
         {
@@ -40,7 +37,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
     }

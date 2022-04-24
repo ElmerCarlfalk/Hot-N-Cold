@@ -212,10 +212,8 @@ MonoBehaviour:
   maxHealth: 3
   damage: 0
   canPogo: 1
-  shakeScreen: 0
-  shakeIntensity: 0
-  shakeDuration: 0
   takeDamageEffect: {fileID: 5503911682366447315, guid: 90eb669d8cec2f642848def8be1810c6, type: 3}
+  spawnParticles: {fileID: 5503911682366447315, guid: 90eb669d8cec2f642848def8be1810c6, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 128

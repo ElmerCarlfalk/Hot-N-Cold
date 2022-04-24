@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimeCounter;
     private bool isJumping;
 
-
     [Header("Ground Check")]
     public Transform groundCheck;
     public float checkRadius;
@@ -76,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded)
             {
                 hasLanded = true;
-                Instantiate(startLandParticles, new Vector3(transform.position.x, transform.position.y - 1.12f, transform.position.z - 2), Quaternion.Euler(-90, 0, 0));
+                Instantiate(startLandParticles, new Vector3(transform.position.x, transform.position.y - 0.7f, transform.position.z - 2), Quaternion.Euler(-90, 0, 0));
                 CinemachineShake.Instance.ShakeCamera(shakeIntensity, shakeTime);
             }
         }

@@ -868,13 +868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61703243da00984594682786cb30c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 0
   damage: 0
   canPogo: 0
-  shakeScreen: 0
-  shakeIntensity: 0
-  shakeDuration: 0.05
   takeDamageEffect: {fileID: 7801333494547296213, guid: c8341017ef60f734e84ec93285bcba3a, type: 3}
+  spawnParticles: {fileID: 7801333494547296213, guid: c8341017ef60f734e84ec93285bcba3a, type: 3}
   minIdleTime: 1
   maxIdleTime: 3
   minAttackDuration: 10
@@ -884,7 +882,11 @@ MonoBehaviour:
   slamAttackCD: 5
   rainAttackCD: 0.15
   timeUntilRainAttack: 1
+  timeUntilSecondDeathParticle: 1.5
   shakeIntensityRainStart: 1
+  shakeIntensityDeathStart: 5
+  shakeIntensityDeathEnd: 7
+  shakeDurationDeathEnd: 0.5
   summonPos:
   - {fileID: 3113234802064561158}
   - {fileID: 3113234801311815462}
@@ -933,6 +935,9 @@ MonoBehaviour:
   - {fileID: 4451912878483040299, guid: b069ac325ff1fd04b82cef2904fff5c3, type: 3}
   - {fileID: 7391106212112694053, guid: 1b5474e78f8a67a4b9b0274db687d7f9, type: 3}
   idleEffect: {fileID: 4756259216432704380, guid: a0745bc54c464b6469f6cfe984b9b5b4, type: 3}
+  deathEffects:
+  - {fileID: 5572394414396923726, guid: 479052e646e0b934f98c60f1a6ad2345, type: 3}
+  - {fileID: 3203029960290926369, guid: 4ce843f0b50c0ba4fa8255dee8940cd0, type: 3}
 --- !u!1 &3113234801902723592
 GameObject:
   m_ObjectHideFlags: 0
