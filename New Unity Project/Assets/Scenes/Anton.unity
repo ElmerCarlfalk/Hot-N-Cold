@@ -803,6 +803,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newOffset: 6
   camPos: {fileID: 5437741}
+  lockY: 0
+  lockHeight: 0
+  activateCamera: 0
 --- !u!61 &1057838591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2507,6 +2510,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newOffset: 0
   camPos: {fileID: 5437741}
+  lockY: 0
+  lockHeight: 0
+  activateCamera: 0
 --- !u!61 &1832351741
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3162,6 +3168,10 @@ PrefabInstance:
     - target: {fileID: 3113234801844327170, guid: ff8d1ad533cc7204685b34f8ca62d91b, type: 3}
       propertyPath: m_Name
       value: Satan owo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113234801844327170, guid: ff8d1ad533cc7204685b34f8ca62d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3113234801844327173, guid: ff8d1ad533cc7204685b34f8ca62d91b, type: 3}
       propertyPath: m_RootOrder
