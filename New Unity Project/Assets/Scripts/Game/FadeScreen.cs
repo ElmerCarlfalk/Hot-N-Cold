@@ -9,15 +9,19 @@ public class FadeScreen : MonoBehaviour
     public static FadeScreen Instance { get; private set; }
     public Image UIImage;
 
+    [Header("Transition")]
     public float fadeInSpeed;
     public float fadeOutSpeed;
-    float alpha;
-    bool fadeGameIn = true;
+    private float alpha;
+    private bool fadeGameIn = true;
 
     public float timeUntilTransition;
     public int nextGameLevel;
 
-    public bool changeScene;
+    [Header("Flash")]
+    public float flashSpeed;
+    private bool flashGame = false;
+    private bool flashingBack = false;
 
     private void Start()
     {
@@ -28,43 +32,68 @@ public class FadeScreen : MonoBehaviour
 
     private void Update()
     {
-        if (fadeGameIn)
+        if (!flashGame)
         {
-            if (alpha > 0)
+            if (fadeGameIn)
             {
-                alpha -= Time.deltaTime * fadeInSpeed;
-                UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
-            }
-            else
-            {
-                UIImage.enabled = false;
-            }
-        }
-        else if (!fadeGameIn)
-        {
-            UIImage.enabled = true;
-
-            if (alpha < 1)
-            {
-                alpha += Time.deltaTime * fadeOutSpeed;
-                UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
-            }
-            else //Extra Time for screen to be stay dark
-            {
-                if(timeUntilTransition <= 0)
+                if (alpha > 0)
                 {
-                    if (changeScene)
+                    alpha -= Time.deltaTime * fadeInSpeed;
+                    UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
+                }
+                else
+                {
+                    UIImage.enabled = false;
+                }
+            }
+            else if (!fadeGameIn)
+            {
+                UIImage.enabled = true;
+
+                if (alpha < 1)
+                {
+                    alpha += Time.deltaTime * fadeOutSpeed;
+                    UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
+                }
+                else //Extra Time for screen to be stay dark
+                {
+                    if (timeUntilTransition <= 0)
                     {
                         SceneManager.LoadScene(nextGameLevel);
                     }
                     else
                     {
-                        FadeImage(true);
+                        timeUntilTransition -= Time.deltaTime;
                     }
+                }
+            }
+        }
+        else
+        {
+            if (!flashingBack)
+            {
+                if (alpha < 1)
+                {
+                    alpha += Time.deltaTime * flashSpeed;
+                    UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
                 }
                 else
                 {
-                    timeUntilTransition -= Time.deltaTime;
+                    flashingBack = true;
+                }
+            }
+            else
+            {
+                if (alpha > 0)
+                {
+                    alpha -= Time.deltaTime * flashSpeed;
+                    UIImage.color = new Color(UIImage.color.r, UIImage.color.g, UIImage.color.b, alpha);
+                }
+                else
+                {
+                    UIImage.enabled = false;
+                    flashingBack = false;
+                    flashGame = false;
                 }
             }
         }
@@ -74,5 +103,12 @@ public class FadeScreen : MonoBehaviour
     {
         alpha = UIImage.color.a;
         fadeGameIn = fadeIn;
+    }
+
+    public void FlashImage()
+    {
+        UIImage.enabled = true;
+        alpha = UIImage.color.a;
+        flashGame = true;
     }
 }

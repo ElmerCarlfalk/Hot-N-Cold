@@ -21,6 +21,7 @@ public class Hazard : MonoBehaviour
             player.GetComponent<PlayerHealth>().TakeDamage(1);
             player.transform.position = checkPointManager.checkpoint;
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            FadeScreen.Instance.FlashImage();
         }
     }
 }

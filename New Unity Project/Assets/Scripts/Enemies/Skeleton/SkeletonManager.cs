@@ -99,14 +99,14 @@ public class SkeletonManager : Enemy
     {
         if(isPlayerFront)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(1);
+            player.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
     private void AttackUp()
     {
         if (isPlayerUp)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(1);
+            player.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 
