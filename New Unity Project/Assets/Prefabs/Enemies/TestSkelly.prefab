@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef547d4e8e8ef204ba340f3918e7ab41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 2
   damage: 1
   canPogo: 1
   takeDamageEffect: {fileID: 5503911682366447315, guid: 90eb669d8cec2f642848def8be1810c6, type: 3}

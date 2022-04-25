@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    
     private Animator animator;
     private Rigidbody2D rb;
     private PlayerAttack playerAttack;
@@ -68,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (animationPlayTime <= 0)
             {
+                FadeScreen.Instance.FadeImage(false, 1, SceneManager.GetActiveScene().buildIndex);
                 Destroy(gameObject);
             }
             else
