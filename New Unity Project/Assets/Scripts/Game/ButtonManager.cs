@@ -17,6 +17,7 @@ public class ButtonManager : MonoBehaviour
     public void MenuButton()
     {
         FadeScreen.Instance.FadeImage(false, 0, 0);
+        Time.timeScale = 1f;
     }
 
     //Stänger av spelet

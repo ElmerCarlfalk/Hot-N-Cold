@@ -156,10 +156,10 @@ RectTransform:
   m_Father: {fileID: 1904453893}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1732.8003, y: 897.6001}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798186
 MonoBehaviour:
@@ -181,8 +181,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1933bffc72ab2ee44bbd96310d93bc2f, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 06218117cb2e7144ca11c388ed317e28, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 64
 --- !u!222 &1798187
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1063,8 +1063,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 60.406525}
-  m_SizeDelta: {x: -103.5542, y: -207.1079}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &418417095
 MonoBehaviour:
@@ -1099,7 +1099,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: 
 --- !u!114 &418417096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1377,7 @@ RectTransform:
   m_GameObject: {fileID: 544685552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732772426}
   m_RootOrder: 0
@@ -1385,7 +1385,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1920, y: -1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &548917202
 GameObject:
@@ -2012,8 +2012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 154, y: -229}
-  m_SizeDelta: {x: 1200, y: 700}
+  m_AnchoredPosition: {x: 175, y: 50}
+  m_SizeDelta: {x: 315.8649, y: 166.7911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863276626
 MonoBehaviour:
@@ -2044,7 +2044,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 64
 --- !u!222 &863276627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -102935,8 +102935,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.314575, y: 34.518066}
-  m_SizeDelta: {x: -112.1836, y: -189.849}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252345660
 MonoBehaviour:
@@ -104650,8 +104650,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 141, y: 408.57373}
-  m_SizeDelta: {x: 1200, y: 656.8525}
+  m_AnchoredPosition: {x: 175, y: 225}
+  m_SizeDelta: {x: 305.8561, y: 151.1949}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326091557
 MonoBehaviour:
@@ -104673,7 +104673,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4ccab7a3bf28c384881c867a1f9be198, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d15c8a34345ab314e9488026a77f4207, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -104682,7 +104682,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 64
 --- !u!222 &1326091558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -109135,7 +109135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
