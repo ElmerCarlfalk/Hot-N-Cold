@@ -147,3 +147,4 @@ MonoBehaviour:
   timeUntilAttack: 0.5
   damage: 1
   attackSpeed: 80
+  particles: {fileID: 8803991871049487038, guid: 1de8f5046d904da41a67165943ef80d0, type: 3}

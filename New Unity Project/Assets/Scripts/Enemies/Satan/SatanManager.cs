@@ -56,12 +56,14 @@ public class SatanManager : Enemy
     [Header("Particle Effects")]
     public GameObject idleEffect;
     public GameObject[] deathEffects;
+    public GameObject dustRainEffect;
+    public GameObject rockRainEffect;
 
     protected override void Start()
     {
         base.Start();
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
-        chooseAttackType = Random.Range(0, 4);
+        chooseAttackType = Random.Range(3, 4);
         AttackDuration = Random.Range(minAttackDuration, maxAttackDuration);
         summonCDTimer = summonCD;
         timeUntilRainAttackCounter = timeUntilRainAttack;
@@ -69,6 +71,8 @@ public class SatanManager : Enemy
         timeUntilStart = spawnParticles.GetComponent<ParticleSystem>().main.duration;
         CinemachineShake.Instance.ShakeCamera(shakeIntensityEnter, timeUntilStart);
         PlayerMovement.Instance.Stun(timeUntilStart);
+        Instantiate(dustRainEffect, new Vector3(transform.position.x, transform.position.y + 11, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
+        Instantiate(rockRainEffect, new Vector3(transform.position.x, transform.position.y + 11, transform.position.z - 1), Quaternion.Euler(0, 0, 0));
     }
 
     void Update()
@@ -102,7 +106,7 @@ public class SatanManager : Enemy
                 }
                 else
                 {
-                    IdleTime -= Time.fixedDeltaTime;
+                    IdleTime -= Time.deltaTime;
                 }
             }
             else
@@ -136,7 +140,7 @@ public class SatanManager : Enemy
         }
         else
         {
-            AttackDuration -= Time.fixedDeltaTime;
+            AttackDuration -= Time.deltaTime;
         }
 
         if (summonCDTimer <= 0)
@@ -147,7 +151,7 @@ public class SatanManager : Enemy
         }
         else
         {
-            summonCDTimer -= Time.fixedDeltaTime;
+            summonCDTimer -= Time.deltaTime;
         }
     }
 
@@ -163,7 +167,7 @@ public class SatanManager : Enemy
         }
         else
         {
-            AttackDuration -= Time.fixedDeltaTime;
+            AttackDuration -= Time.deltaTime;
         }
 
         if (spikeAttackCDTimer <= 0)
@@ -180,7 +184,7 @@ public class SatanManager : Enemy
         }
         else
         {
-            spikeAttackCDTimer -= Time.fixedDeltaTime;
+            spikeAttackCDTimer -= Time.deltaTime;
         }
     }
 
@@ -196,7 +200,7 @@ public class SatanManager : Enemy
         }
         else
         {
-            AttackDuration -= Time.fixedDeltaTime;
+            AttackDuration -= Time.deltaTime;
         }
 
         if (slamAttackCDTimer <= 0)
@@ -207,7 +211,7 @@ public class SatanManager : Enemy
         }
         else
         {
-            slamAttackCDTimer -= Time.fixedDeltaTime;
+            slamAttackCDTimer -= Time.deltaTime;
         }
     }
 
@@ -215,6 +219,8 @@ public class SatanManager : Enemy
     {
         if (!startedRain)
         {
+            Instantiate(dustRainEffect, new Vector3(transform.position.x, transform.position.y + 11, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
+            Instantiate(rockRainEffect, new Vector3(transform.position.x, transform.position.y + 11, transform.position.z - 1), Quaternion.Euler(0, 0, 0));
             CinemachineShake.Instance.ShakeCamera(shakeIntensityRainStart, timeUntilRainAttack + 0.5f);
             startedRain = true;
         }
@@ -233,7 +239,7 @@ public class SatanManager : Enemy
             }
             else
             {
-                AttackDuration -= Time.fixedDeltaTime;
+                AttackDuration -= Time.deltaTime;
             }
 
             if (rainAttackCDTimer <= 0)
@@ -244,7 +250,7 @@ public class SatanManager : Enemy
             }
             else
             {
-                rainAttackCDTimer -= Time.fixedDeltaTime;
+                rainAttackCDTimer -= Time.deltaTime;
             }
         }
         else

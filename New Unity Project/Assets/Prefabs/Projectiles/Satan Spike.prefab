@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  timeUntilAttack: 1
+  timeUntilAttack: 1.5
   pointOfParticles: {fileID: 2305410543215703968}
   particleEffectEnter: {fileID: 2003149892059126462, guid: a227686b66771074882d27fb59d1168e, type: 3}
   particleEffectAttack: {fileID: 8373883105387420940, guid: 9b01f5b18ee59234794a038d685fd1b0, type: 3}

@@ -23,7 +23,7 @@ public class SpikeProjectile : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         //pointOfParticles = GetComponentInChildren<Transform>();
-        Instantiate(particleEffectEnter, pointOfParticles.position, Quaternion.Euler(-90, 0, 0));
+        Instantiate(particleEffectEnter, new Vector3(pointOfParticles.position.x, pointOfParticles.position.y, pointOfParticles.position.z - 1), Quaternion.Euler(-90, 0, 0));
     }
 
     private void Update()
@@ -39,7 +39,7 @@ public class SpikeProjectile : MonoBehaviour
             if (!hasAttacked)
             {
                 hasAttacked = true;
-                Instantiate(particleEffectAttack, pointOfParticles.position, Quaternion.Euler(-90, 0, 0));
+                Instantiate(particleEffectAttack, new Vector3(pointOfParticles.position.x, pointOfParticles.position.y, pointOfParticles.position.z - 1), Quaternion.Euler(-90, 0, 0));
             }
         }
         else

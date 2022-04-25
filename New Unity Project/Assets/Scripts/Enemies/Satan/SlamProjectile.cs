@@ -15,6 +15,8 @@ public class SlamProjectile : MonoBehaviour
 
     bool dashRight;
 
+    public GameObject particles;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,6 +29,7 @@ public class SlamProjectile : MonoBehaviour
         {
             dashRight = false;
         }
+        Instantiate(particles, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
     }
 
     // Update is called once per frame
@@ -67,6 +70,7 @@ public class SlamProjectile : MonoBehaviour
         }
         else //Om det är vägg
         {
+            Instantiate(particles, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
             Destroy(gameObject);
         }
     }

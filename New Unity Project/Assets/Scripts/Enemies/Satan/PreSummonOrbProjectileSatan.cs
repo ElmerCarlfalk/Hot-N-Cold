@@ -16,7 +16,7 @@ public class PreSummonOrbProjectileSatan : MonoBehaviour
 
     void Start()
     {
-        Instantiate(summoningParticlesIn, transform.position, Quaternion.Euler(0, 0, 0));
+        Instantiate(summoningParticlesIn, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.Euler(0, 0, 0));
         Instantiate(summoningParticlesOut, transform.position, Quaternion.Euler(0, 0, 0));
         timeUntilSummonAttack = summoningParticlesOut.GetComponent<ParticleSystem>().main.duration;
     }
@@ -25,8 +25,8 @@ public class PreSummonOrbProjectileSatan : MonoBehaviour
     {
         if (timeUntilSummonAttack <= 0)
         {
-            Instantiate(summonParticles, transform.position, Quaternion.Euler(0, 0, 0));
-            Instantiate(summonProjectile, transform.position, Quaternion.identity);
+            Instantiate(summonParticles, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.Euler(0, 0, 0));
+            Instantiate(summonProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity);
             Destroy(gameObject);
         }
         else

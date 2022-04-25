@@ -39,7 +39,7 @@ public class RainProjectile : MonoBehaviour
         }
         else //Om det är golv
         {
-            Instantiate(takeDamageEffect, transform.position, Quaternion.Euler(0, 0, 0));
+            Instantiate(takeDamageEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.Euler(0, 0, 0));
             Destroy(gameObject);
         }
     }

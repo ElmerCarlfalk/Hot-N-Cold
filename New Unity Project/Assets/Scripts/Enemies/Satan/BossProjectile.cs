@@ -29,7 +29,7 @@ public class BossProjectile : MonoBehaviour
     {
         if (timeBetweenParticlesCounter <= 0)
         {
-            Instantiate(idleParticles, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.Euler(0, 0, 0));
+            Instantiate(idleParticles, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.Euler(0, 0, 0));
             timeBetweenParticlesCounter = timeBetweenParticles;
         }
         else
