@@ -8,7 +8,25 @@ public class ButtonManager : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    //Byter till spel scenen
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gameIsPaused)
+            {
+                pauseMenuUI.SetActive(false);
+                Time.timeScale = 1f;
+                gameIsPaused = false;
+            }
+            else
+            {
+                pauseMenuUI.SetActive(true);
+                Time.timeScale = 0f;
+                gameIsPaused = true;
+            }
+        }
+    }
+
     public void StartButton()
     {
         FadeScreen.Instance.FadeImage(false, 0, 1);
