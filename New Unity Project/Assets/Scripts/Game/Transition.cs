@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour
 {
+    public int nextGameLevel;
+
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         PlayerHealth player = hitInfo.GetComponent<PlayerHealth>();
@@ -15,6 +17,6 @@ public class Transition : MonoBehaviour
 
     void Fade()
     {
-        FadeScreen.Instance.FadeImage(false, 0);
+        FadeScreen.Instance.FadeImage(false, 0, nextGameLevel);
     }
 }

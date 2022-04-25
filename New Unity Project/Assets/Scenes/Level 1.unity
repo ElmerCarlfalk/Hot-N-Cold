@@ -555,6 +555,10 @@ MonoBehaviour:
   camPos: {fileID: 1625039134}
   lockY: 1
   lockHeight: 14
+  bossRoom: 0
+  currentCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
+  door: {fileID: 0}
   activateCamera: 0
 --- !u!61 &216409072
 BoxCollider2D:
@@ -1118,8 +1122,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
+    m_PressedColor: {r: 0.18823531, g: 0.18823531, b: 0.18823531, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1209,6 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ba8d4126d0cd34381c076b7a6e088c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextGameLevel: 2
 --- !u!61 &460635663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1430,6 +1435,10 @@ MonoBehaviour:
   camPos: {fileID: 1625039134}
   lockY: 0
   lockHeight: 0
+  bossRoom: 0
+  currentCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
+  door: {fileID: 0}
   activateCamera: 0
 --- !u!61 &548917205
 BoxCollider2D:
@@ -2241,6 +2250,10 @@ MonoBehaviour:
   camPos: {fileID: 1625039134}
   lockY: 1
   lockHeight: -2
+  bossRoom: 0
+  currentCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
+  door: {fileID: 0}
   activateCamera: 1
 --- !u!61 &1021282912
 BoxCollider2D:
@@ -102417,6 +102430,10 @@ MonoBehaviour:
   camPos: {fileID: 1625039134}
   lockY: 0
   lockHeight: 0
+  bossRoom: 0
+  currentCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
+  door: {fileID: 0}
   activateCamera: 0
 --- !u!61 &1146453691
 BoxCollider2D:
@@ -102977,8 +102994,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
+    m_PressedColor: {r: 0.18823531, g: 0.18823531, b: 0.18823531, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -105101,6 +105118,10 @@ MonoBehaviour:
   camPos: {fileID: 1625039134}
   lockY: 0
   lockHeight: 0
+  bossRoom: 0
+  currentCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
+  door: {fileID: 0}
   activateCamera: 0
 --- !u!61 &1508374134
 BoxCollider2D:
@@ -105226,9 +105247,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
-    m_HighlightedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
+    m_PressedColor: {r: 0.18823531, g: 0.18823531, b: 0.18823531, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -108564,7 +108585,6 @@ MonoBehaviour:
   fadeInSpeed: 0.3
   fadeOutSpeed: 0.8
   timeUntilTransition: 1
-  nextGameLevel: 2
   flashSpeed: 8
 --- !u!114 &1732772423
 MonoBehaviour:
@@ -108640,7 +108660,7 @@ RectTransform:
   m_Children:
   - {fileID: 544685555}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -108807,7 +108827,7 @@ RectTransform:
   m_Children:
   - {fileID: 46912409}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -109161,7 +109181,7 @@ RectTransform:
   - {fileID: 1798185}
   - {fileID: 1355268944}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -109291,6 +109311,10 @@ MonoBehaviour:
   camPos: {fileID: 1625039134}
   lockY: 0
   lockHeight: 0
+  bossRoom: 0
+  currentCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
+  door: {fileID: 0}
   activateCamera: 0
 --- !u!61 &1952012586
 BoxCollider2D:
@@ -109680,6 +109704,10 @@ MonoBehaviour:
   camPos: {fileID: 1625039134}
   lockY: 1
   lockHeight: -2
+  bossRoom: 0
+  currentCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
+  door: {fileID: 0}
   activateCamera: 0
 --- !u!61 &2041699019
 BoxCollider2D:

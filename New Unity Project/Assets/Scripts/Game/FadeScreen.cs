@@ -18,7 +18,7 @@ public class FadeScreen : MonoBehaviour
     private float timeUntilFade = 0;
 
     public float timeUntilTransition;
-    public int nextGameLevel;
+    private int nextGameLevel;
 
     [Header("Flash")]
     public float flashSpeed;
@@ -108,11 +108,12 @@ public class FadeScreen : MonoBehaviour
         }
     }
 
-    public void FadeImage(bool fadeIn, float timeUntilFadeStart)
+    public void FadeImage(bool fadeIn, float timeUntilFadeStart, int nextScene)
     {
         alpha = UIImage.color.a;
         fadeGameIn = fadeIn;
         timeUntilFade = timeUntilFadeStart;
+        nextGameLevel = nextScene;
     }
 
     public void FlashImage()

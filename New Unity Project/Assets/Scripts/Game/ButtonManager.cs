@@ -11,12 +11,12 @@ public class ButtonManager : MonoBehaviour
     //Byter till spel scenen
     public void StartButton()
     {
-        FadeScreen.Instance.FadeImage(false, 0);
+        FadeScreen.Instance.FadeImage(false, 0, 1);
     }
 
     public void MenuButton()
     {
-        SceneManager.LoadScene("MainMenu");
+        FadeScreen.Instance.FadeImage(false, 0, 0);
     }
 
     //Stänger av spelet

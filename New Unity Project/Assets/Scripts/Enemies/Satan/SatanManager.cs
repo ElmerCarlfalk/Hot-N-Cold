@@ -268,7 +268,7 @@ public class SatanManager : Enemy
             {
                 CinemachineShake.Instance.ShakeCamera(shakeIntensityDeathEnd, shakeDurationDeathEnd);
                 Instantiate(deathEffects[1], new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.Euler(0, 0, 0));
-                FadeScreen.Instance.FadeImage(false, 2);
+                FadeScreen.Instance.FadeImage(false, 2, 0);
                 Destroy(gameObject);
             }
             else
